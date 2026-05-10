@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Brouillons
+*.draft.*
+*.tmp
+
+# Secrets éventuels
+.env
+.env.local
+*.key

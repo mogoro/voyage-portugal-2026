@@ -1,0 +1,2377 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grand Tour Ibérique 2026 — Carnet de voyage famille Mogoro</title>
+<meta name="description" content="Dossier de voyage 21 jours, France · Espagne · Portugal — été 2026." />
+<meta name="theme-color" content="#B65340" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Voyage 2026" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --cream-2: #F2EBDD;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --terracotta: #B65340;
+    --terracotta-dark: #8E3F2F;
+    --azulejo: #1F4E5F;
+    --azulejo-soft: #3A6B7A;
+    --olive: #6B7A4F;
+    --gold: #C9A961;
+    --line: #D9D2C0;
+    --max: 1140px;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.01em; }
+  h3 { font-size: clamp(1.2rem, 2.2vw, 1.6rem); }
+  h4 { font-size: 1.05rem; font-weight: 600; }
+  p { margin: 0 0 1em; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .lede {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  .rule {
+    width: 60px;
+    height: 2px;
+    background: var(--terracotta);
+    margin: 1rem 0;
+    border: 0;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(26,26,26,0.35) 50%, rgba(26,26,26,0.7) 100%),
+      linear-gradient(135deg, #B65340 0%, #C9A961 35%, #1F4E5F 100%);
+    color: var(--cream);
+    padding: 2.5rem 0 2rem;
+    position: relative;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 1px, transparent 1px),
+      radial-gradient(circle at 80% 60%, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 24px 24px, 36px 36px;
+    pointer-events: none;
+  }
+  .hero > .wrap { position: relative; z-index: 1; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(250,246,239,0.3);
+    border-bottom: 1px solid rgba(250,246,239,0.3);
+    padding: 0.7rem 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero-mid { padding: 2.5rem 0 2rem; }
+  .hero-mid .eyebrow { color: var(--gold); }
+  .hero h1 { margin: 1rem 0 1.2rem; font-weight: 500; }
+  .hero h1 em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    font-style: italic;
+    max-width: 50ch;
+    color: rgba(250,246,239,0.9);
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem 1.8rem;
+    border-top: 1px solid rgba(250,246,239,0.3);
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+  }
+  .hero-meta div { font-size: 0.82rem; }
+  .hero-meta strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .hero-meta span {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    opacity: 0.85;
+  }
+
+  /* ============ LAYOUT: SIDEBAR + MAIN ============ */
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+    min-height: 100vh;
+    transition: grid-template-columns 0.25s ease;
+  }
+  .layout.collapsed { grid-template-columns: 68px 1fr; }
+  .layout.collapsed .tabs-header { display: none; }
+  .layout.collapsed .tab-label { opacity: 0; width: 0; overflow: hidden; }
+  .layout.collapsed .tab-btn {
+    padding: 0.95rem 0;
+    justify-content: center;
+    gap: 0;
+  }
+  .layout.collapsed .sidebar-toggle svg { transform: rotate(180deg); }
+
+  /* ============ TABS = SIDEBAR ============ */
+  .tabs {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    background: var(--cream-2);
+    border-right: 1px solid var(--line);
+    padding: 2rem 0;
+  }
+  .tabs-header {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .tabs-header .eyebrow {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .tabs-header strong {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--azulejo);
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+  }
+  .tabs-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tab-btn {
+    background: transparent;
+    border: 0;
+    border-left: 3px solid transparent;
+    padding: 0.85rem 1.5rem 0.85rem 1.4rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .tab-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--ink-soft);
+    transition: color 0.15s, transform 0.15s;
+  }
+  .tab-label {
+    transition: opacity 0.2s, width 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover {
+    color: var(--ink);
+    background: rgba(182,83,64,0.05);
+  }
+  .tab-btn:hover .tab-icon { color: var(--terracotta); }
+  .tab-btn.active {
+    color: var(--terracotta);
+    border-left-color: var(--terracotta);
+    background: var(--cream);
+  }
+  .tab-btn.active .tab-icon { color: var(--terracotta); }
+
+  .sidebar-toggle {
+    margin: 1.2rem 1rem 0;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s;
+  }
+  .sidebar-toggle:hover { background: var(--cream); color: var(--terracotta); }
+  .sidebar-toggle svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+  }
+  .layout.collapsed .sidebar-toggle { margin: 1.2rem auto 0; }
+
+  /* ============ TAB PANES ============ */
+  .panes { padding: 0; min-width: 0; }
+  .pane {
+    display: none;
+    padding: 4rem 0;
+    border-top: 0;
+  }
+  .pane.active { display: block; }
+  .pane > .wrap > .section-head { margin-bottom: 2.5rem; max-width: 720px; }
+  .pane > .wrap > .section-head .eyebrow { display: block; margin-bottom: 0.8rem; }
+
+  /* ============ MOBILE: SIDEBAR -> HORIZONTAL BAR ============ */
+  @media (max-width: 900px) {
+    .layout,
+    .layout.collapsed { grid-template-columns: 1fr; }
+    .tabs {
+      max-height: none;
+      overflow-y: visible;
+      padding: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 2px 12px rgba(26,26,26,0.04);
+    }
+    .tabs-header,
+    .sidebar-toggle { display: none; }
+    .tabs-inner {
+      flex-direction: row;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn {
+      flex: 0 0 auto;
+      width: auto;
+      border-left: 0;
+      border-bottom: 3px solid transparent;
+      padding: 1.1rem 1.1rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .tab-icon { display: none; }
+    .tab-label { opacity: 1 !important; width: auto !important; }
+    .tab-btn.active {
+      border-left-color: transparent;
+      border-bottom-color: var(--terracotta);
+      background: transparent;
+    }
+    .pane { padding: 2.5rem 0; }
+  }
+
+  /* ============ SUGGESTIONS HÉBERGEMENT ============ */
+  .stay-suggestions {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--line);
+  }
+  .stay-suggestions h5 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin: 0 0 0.8rem;
+  }
+  .suggest-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .suggest-item {
+    background: var(--cream-2);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+  .suggest-item a {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--azulejo);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .suggest-item a:hover { color: var(--terracotta); text-decoration: underline; }
+  .suggest-meta {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .suggest-why {
+    font-size: 0.82rem;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.45;
+  }
+  .suggest-disclaimer {
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ============ STATS ============ */
+  .stats-band {
+    background: var(--cream-2);
+    margin: 0 0 3rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .stats-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .stat strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat span {
+    font-size: 0.74rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ============ TIMELINE ============ */
+  .timeline { position: relative; margin-top: 1.5rem; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: var(--line);
+  }
+  .step {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2.5rem;
+  }
+  .step:last-child { margin-bottom: 0; }
+  .step::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--terracotta);
+  }
+  .step.flag::before { background: var(--terracotta); }
+  .step.fixed::before { background: var(--azulejo); border-color: var(--azulejo); }
+  .step-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .step-day {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .step-date {
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .step h3 { margin: 0.2rem 0 0.4rem; }
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 100px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+  .badge.book { color: var(--olive); }
+  .badge.todo { color: var(--terracotta); }
+  .step .meta {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+  }
+  .step .highlight {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.02rem;
+    color: var(--azulejo);
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+    margin-top: 0.7rem;
+  }
+
+  /* ============ MAP ============ */
+  #leaflet-map {
+    width: 100%;
+    height: min(70vh, 700px);
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(26,26,26,0.06);
+  }
+  .map-legend {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  .legend-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-dot.start { background: var(--ink); }
+  .legend-dot.fixed { background: var(--azulejo); }
+  .legend-dot.todo { background: var(--terracotta); }
+  .legend-line {
+    width: 24px; height: 3px; flex-shrink: 0;
+  }
+  .legend-line.go { background: var(--terracotta); }
+  .legend-line.back { background: var(--azulejo); border-top: 1px dashed var(--azulejo); }
+  .leaflet-popup-content {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+  }
+  .leaflet-popup-content strong {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ============ TABLE ============ */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--cream-2);
+  }
+  tr.total td {
+    font-weight: 700;
+    border-top: 2px solid var(--ink);
+    background: var(--cream-2);
+  }
+  .pill {
+    display: inline-block;
+    font-size: 0.68rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .pill.ok { background: rgba(107,122,79,0.15); color: var(--olive); }
+  .pill.todo { background: rgba(182,83,64,0.12); color: var(--terracotta-dark); }
+
+  /* ============ STAY CARDS ============ */
+  .stays-list { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .stay {
+    background: white;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--terracotta);
+    padding: 1.5rem 1.8rem;
+    border-radius: 4px;
+  }
+  .stay.booked { border-left-color: var(--olive); }
+  .stay-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.7rem;
+  }
+  .stay-head h4 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--azulejo);
+  }
+  .stay-dates {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .stay-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 600px) { .stay-body { grid-template-columns: 1fr; } }
+  .stay-fields { display: flex; flex-direction: column; gap: 0.5rem; }
+  .stay-field {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0.8rem;
+    font-size: 0.88rem;
+    border-bottom: 1px dashed var(--line);
+    padding: 0.4rem 0;
+  }
+  @media (max-width: 600px) { .stay-field { grid-template-columns: 1fr; gap: 0.2rem; } }
+  .stay-field dt {
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 0.15rem;
+  }
+  .stay-field dd { margin: 0; color: var(--ink); }
+  .stay-field dd.todo {
+    color: var(--terracotta);
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  /* ============ CARDS ============ */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .card {
+    background: var(--cream-2);
+    padding: 1.6rem 1.4rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--terracotta);
+  }
+  .card h4 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--azulejo);
+  }
+  .card ul { padding-left: 1.1rem; margin: 0.5rem 0 0; }
+  .card li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+  /* ============ BUDGET ============ */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .budget-box {
+    border: 1px solid var(--line);
+    padding: 1.8rem;
+    background: var(--cream);
+  }
+  .budget-box h4 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: var(--terracotta);
+  }
+  .budget-box .total {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .budget-box.featured {
+    background: var(--azulejo);
+    color: var(--cream);
+    border-color: var(--azulejo);
+  }
+  .budget-box.featured h4 { color: var(--gold); }
+  .budget-box.featured .total { color: var(--cream); border-color: rgba(250,246,239,0.3); }
+
+  /* ============ VE ============ */
+  .ve-band {
+    background: var(--azulejo);
+    color: var(--cream);
+    padding: 3rem 1.5rem;
+    margin: 0 -1.5rem;
+    border-radius: 4px;
+  }
+  .ve-band .eyebrow { color: var(--gold); }
+  .ve-band h2 { color: var(--cream); }
+  .ve-band .lede { color: rgba(250,246,239,0.85); }
+  .ve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .ve-item {
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .ve-item strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+  .ve-item span { font-size: 0.88rem; opacity: 0.9; }
+
+  /* ============ HIGHLIGHTS ============ */
+  .place {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .place:last-child { border-bottom: 0; }
+  @media (max-width: 700px) { .place { grid-template-columns: 1fr; gap: 1rem; } }
+  .place-name {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1.1;
+  }
+  .place-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+    font-weight: 500;
+  }
+  .place-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .place-item {
+    background: var(--cream-2);
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--gold);
+    font-size: 0.9rem;
+  }
+  .place-item strong {
+    display: block;
+    color: var(--azulejo);
+    margin-bottom: 0.2rem;
+  }
+
+  /* ============ PHOTO GALLERY ============ */
+  .photo-section { margin-bottom: 3rem; }
+  .photo-section h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--terracotta);
+    margin-bottom: 1.2rem;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .photo-card {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, var(--cream-2) 0%, var(--line) 100%);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .photo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26,26,26,0.08);
+  }
+  .photo-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .photo-card.has-image { background: none; }
+  .photo-card .photo-info {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.85) 100%);
+    color: var(--cream);
+    padding: 0.6rem 0.8rem;
+    margin: -1rem;
+    margin-top: 4rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    width: calc(100% + 2rem);
+    align-self: stretch;
+  }
+  .photo-card:not(.has-image) .photo-info {
+    background: none;
+    color: var(--ink-soft);
+    margin-top: 0;
+  }
+  .photo-card .photo-info strong {
+    display: block;
+    color: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+  .photo-card:not(.has-image) .photo-info strong {
+    color: var(--azulejo);
+    font-family: var(--serif);
+    font-size: 1rem;
+  }
+  .photo-empty-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--terracotta);
+    opacity: 0.3;
+  }
+  .photo-help {
+    background: var(--cream-2);
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--gold);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .photo-help code {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+  }
+
+  /* ============ PRACTICAL ============ */
+  .practical {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .practical-box h4 {
+    font-family: var(--serif);
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+    font-size: 1.25rem;
+  }
+  .practical-box ul { list-style: none; padding: 0; margin: 0; }
+  .practical-box li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+  .practical-box li:last-child { border-bottom: 0; }
+  kbd {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2.5rem 0 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  footer .eyebrow { color: var(--gold); }
+  footer h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    margin: 0.8rem 0 0.4rem;
+  }
+  footer p { font-size: 0.82rem; opacity: 0.7; max-width: 50ch; margin: 0.4rem auto; }
+  footer .sig {
+    margin-top: 1rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+
+  /* =========================================================
+     COMPACT FULL-VIEWPORT MODE (desktop only)
+     Tout tient dans la fenêtre, scroll interne uniquement.
+     ========================================================= */
+  @media (min-width: 901px) {
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Hero compact en bandeau */
+    .hero {
+      flex-shrink: 0;
+      padding: 0.7rem 0;
+    }
+    .hero::after { display: none; }
+    .hero > .wrap { display: flex; flex-direction: column; gap: 0.4rem; }
+    .hero-top { display: none; }
+    .hero-mid {
+      padding: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .hero-mid .eyebrow { display: none; }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+    }
+    .hero-sub { display: none; }
+    .hero-meta {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.4rem;
+    }
+    .hero-meta div { font-size: 0.7rem; line-height: 1.2; }
+    .hero-meta strong { font-size: 0.85rem; margin: 0; }
+    .hero-meta span { font-size: 0.58rem; }
+
+    /* Layout full height */
+    .layout { flex: 1; min-height: 0; }
+
+    /* Sidebar plus dense */
+    .tabs { padding: 0.7rem 0; max-height: 100%; }
+    .tabs-header { padding: 0 1.2rem 0.7rem; margin-bottom: 0.4rem; }
+    .tabs-header strong { font-size: 0.95rem; }
+    .tab-btn {
+      padding: 0.5rem 1.2rem 0.5rem 1rem;
+      font-size: 0.72rem;
+      gap: 0.6rem;
+    }
+    .tab-icon { width: 15px; height: 15px; }
+    .sidebar-toggle { margin: 0.7rem 1rem 0; padding: 0.35rem; }
+    .sidebar-toggle svg { width: 13px; height: 13px; }
+
+    /* Main avec scroll interne uniquement */
+    .panes {
+      overflow-y: auto;
+      height: 100%;
+      scrollbar-width: thin;
+    }
+    .pane { padding: 1.4rem 0; }
+    .pane > .wrap > .section-head { margin-bottom: 1.2rem; max-width: 100%; }
+    .pane > .wrap > .section-head h2 { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+    .pane > .wrap > .section-head .lede { font-size: 0.88rem; max-width: 80ch; }
+    .rule { margin: 0.6rem 0; }
+
+    /* Stats + cards compacts */
+    .stats-band { padding: 1rem 1rem; margin: 0 0 1.2rem; }
+    .stats-grid { gap: 0.8rem; }
+    .stat strong { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
+    .stat span { font-size: 0.6rem; }
+    .cards { gap: 0.8rem; margin-top: 1.2rem; }
+    .card { padding: 0.9rem 1.1rem; }
+    .card h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .card ul { margin-top: 0.3rem; }
+    .card li { font-size: 0.78rem; margin-bottom: 0.2rem; }
+
+    /* Timeline en grille de cartes compactes */
+    .timeline {
+      margin-top: 0.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.7rem;
+    }
+    .timeline::before { display: none; }
+    .step {
+      position: static;
+      padding: 0.8rem 1rem;
+      margin: 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--terracotta);
+      border-radius: 4px;
+    }
+    .step.fixed { border-left-color: var(--azulejo); }
+    .step::before { display: none; }
+    .step-head { gap: 0.3rem 0.7rem; margin-bottom: 0.2rem; }
+    .step-day { font-size: 0.95rem; }
+    .step-date { font-size: 0.65rem; }
+    .step h3 { font-size: 0.92rem; margin: 0.15rem 0 0.3rem; }
+    .step .meta { font-size: 0.7rem; margin-bottom: 0.35rem; }
+    .step .highlight {
+      font-size: 0.76rem;
+      line-height: 1.4;
+      padding-left: 0.6rem;
+      margin-top: 0.4rem;
+    }
+    .badge { font-size: 0.55rem; padding: 0.08rem 0.4rem; }
+
+    /* Hébergements en grille */
+    .stays-list {
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 0.9rem;
+    }
+    .stay { padding: 0.9rem 1.1rem; }
+    .stay-head { margin-bottom: 0.4rem; }
+    .stay-head h4 { font-size: 1.15rem; }
+    .stay-dates { font-size: 0.7rem; }
+    .stay-body { gap: 1rem; margin-top: 0.2rem; }
+    .stay-field { padding: 0.22rem 0; font-size: 0.78rem; gap: 0.6rem; }
+    .stay-field dt { font-size: 0.62rem; padding-top: 0.1rem; }
+    .stay-suggestions { margin-top: 0.6rem; padding-top: 0.6rem; }
+    .stay-suggestions h5 { font-size: 0.62rem; margin-bottom: 0.4rem; }
+    .suggest-list { grid-template-columns: 1fr; gap: 0.4rem; }
+    .suggest-item { padding: 0.45rem 0.7rem; }
+    .suggest-item a { font-size: 0.88rem; margin-bottom: 0.1rem; }
+    .suggest-meta { font-size: 0.68rem; margin-bottom: 0.25rem; }
+    .suggest-why { font-size: 0.72rem; line-height: 1.4; }
+    .suggest-disclaimer { font-size: 0.68rem; margin-top: 0.4rem; }
+
+    /* Budget table + boxes */
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.45rem 0.7rem; }
+    .budget-grid { gap: 0.9rem; margin-top: 1rem; }
+    .budget-box { padding: 1rem 1.2rem; }
+    .budget-box h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .budget-box p { font-size: 0.8rem; margin-bottom: 0.4rem; }
+    .budget-box .total { font-size: 1.6rem; margin-top: 0.4rem; padding-top: 0.4rem; }
+
+    /* Map */
+    #leaflet-map { height: calc(100vh - 240px); min-height: 360px; }
+    .map-legend { gap: 0.5rem 1rem; margin-top: 0.8rem; }
+    .legend-item { font-size: 0.78rem; }
+
+    /* VE band */
+    .ve-band { padding: 1.4rem 1.5rem; margin: 0; border-radius: 4px; }
+    .ve-grid { gap: 1rem; margin-top: 0.8rem; }
+    .ve-item { padding-left: 0.8rem; }
+    .ve-item strong { font-size: 1.05rem; }
+    .ve-item span { font-size: 0.78rem; }
+
+    /* Highlights / visites en grille */
+    .place {
+      grid-template-columns: 140px 1fr;
+      gap: 1rem;
+      padding: 0.7rem 0;
+    }
+    .place-name { font-size: 1.15rem; }
+    .place-name small { font-size: 0.62rem; margin-top: 0.2rem; }
+    .place-list {
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.4rem;
+    }
+    .place-item { padding: 0.4rem 0.7rem; font-size: 0.74rem; line-height: 1.3; }
+    .place-item strong { font-size: 0.78rem; margin-bottom: 0.1rem; }
+
+    /* Photos en grille très dense */
+    .photo-help { padding: 0.7rem 1rem; font-size: 0.78rem; margin-bottom: 1rem; }
+    .photo-section { margin-bottom: 1.2rem; }
+    .photo-section h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .photo-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.4rem;
+    }
+    .photo-card { padding: 0.4rem; }
+    .photo-card .photo-info {
+      font-size: 0.6rem;
+      padding: 0.3rem 0.45rem;
+      margin: -0.4rem;
+      margin-top: 2rem;
+      line-height: 1.25;
+    }
+    .photo-card .photo-info strong { font-size: 0.65rem; }
+    .photo-card:not(.has-image) .photo-info strong { font-size: 0.85rem; }
+    .photo-empty-icon { font-size: 2rem; }
+
+    /* Practical compact */
+    .practical { gap: 0.9rem; margin-top: 1rem; }
+    .practical-box h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .practical-box li { padding: 0.22rem 0; font-size: 0.78rem; }
+
+    /* Footer compact */
+    footer { flex-shrink: 0; padding: 0.7rem 0; margin-top: 0; }
+    footer h3 { font-size: 1.15rem; margin: 0.2rem 0; }
+    footer p { font-size: 0.72rem; margin: 0.15rem auto; }
+    footer .sig { font-size: 0.85rem; margin-top: 0.4rem; }
+    /* on garde un footer minimal */
+    footer p:nth-of-type(2) { display: none; }
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    @page { size: A4; margin: 1.4cm; }
+    html, body {
+      background: white;
+      color: black;
+      font-size: 10.5pt;
+      height: auto;
+      overflow: visible;
+      display: block;
+    }
+    .layout { display: block; }
+    .tabs { display: none; }
+    .panes { overflow: visible; height: auto; }
+    .pane { display: block !important; padding: 1.5rem 0; page-break-before: always; }
+    .pane:first-of-type { page-break-before: auto; }
+    .hero {
+      background: white !important;
+      color: black !important;
+      border-bottom: 3px solid var(--terracotta);
+      padding: 1rem 0;
+    }
+    .hero h1, .hero h1 em, .hero-sub, .hero-meta { color: var(--ink) !important; }
+    .hero-top, .hero-meta { border-color: var(--line) !important; }
+    .ve-band { background: white !important; color: black !important; border: 1px solid var(--line); padding: 1.5rem; }
+    .ve-band h2, .ve-band .eyebrow, .ve-item strong { color: var(--terracotta) !important; }
+    .ve-band .lede { color: var(--ink-soft) !important; }
+    .ve-item { border-left-color: var(--terracotta); }
+    .budget-box.featured { background: white !important; color: black !important; border: 2px solid var(--azulejo); }
+    .budget-box.featured h4, .budget-box.featured .total { color: var(--azulejo) !important; }
+    .step, .place, .stay, .photo-card { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+    a { color: inherit; text-decoration: none; }
+    #leaflet-map { height: 16cm; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span>Famille Mogoro</span>
+      <span>Été 2026</span>
+      <span>Carnet n°01</span>
+    </div>
+    <div class="hero-mid">
+      <span class="eyebrow">Carnet de voyage</span>
+      <h1>Grand Tour <em>Ibérique</em></h1>
+      <p class="hero-sub">
+        Vingt-et-un jours sur les routes de France, d'Espagne et du Portugal —
+        de Bordeaux au Tage, via la côte cantabrique, les Picos de Europa
+        et un mariage à Guimarães.
+      </p>
+    </div>
+    <div class="wrap" style="padding:0">
+      <div class="hero-meta">
+        <div><span>Dates</span><strong>23 juil. → 12 août</strong></div>
+        <div><span>Durée</span><strong>21 jours</strong></div>
+        <div><span>Voyageurs</span><strong>4 personnes</strong></div>
+        <div><span>Distance</span><strong>≈ 4 300 km</strong></div>
+        <div><span>Mobilité</span><strong>Voiture électrique</strong></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LAYOUT: SIDEBAR + CONTENT ============ -->
+<div class="layout">
+<nav class="tabs">
+  <div class="tabs-header">
+    <span class="eyebrow">Carnet</span>
+    <strong>Grand Tour Ibérique</strong>
+  </div>
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="overview" title="Vue d'ensemble">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="tab-label">Vue d'ensemble</span>
+    </button>
+    <button class="tab-btn" data-tab="map" title="Carte">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span class="tab-label">Carte</span>
+    </button>
+    <button class="tab-btn" data-tab="route" title="Jour par jour">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span class="tab-label">Jour par jour</span>
+    </button>
+    <button class="tab-btn" data-tab="stays" title="Hébergements">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+      <span class="tab-label">Hébergements</span>
+    </button>
+    <button class="tab-btn" data-tab="budget" title="Budget">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8.5a4.5 4.5 0 1 0 0 7M7 11h7M7 14h7"/></svg>
+      <span class="tab-label">Budget</span>
+    </button>
+    <button class="tab-btn" data-tab="ev" title="Recharge VE">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="tab-label">Recharge VE</span>
+    </button>
+    <button class="tab-btn" data-tab="highlights" title="Visites">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="tab-label">Visites</span>
+    </button>
+    <button class="tab-btn" data-tab="photos" title="Photos">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <span class="tab-label">Photos</span>
+    </button>
+    <button class="tab-btn" data-tab="practical" title="Pratique">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <span class="tab-label">Pratique</span>
+    </button>
+  </div>
+  <button class="sidebar-toggle" aria-label="Réduire la barre latérale" title="Réduire / agrandir">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+</nav>
+
+<main class="panes">
+
+<!-- ============ PANE: OVERVIEW ============ -->
+<section class="pane active" id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Le voyage</span>
+      <h2>Vue d'ensemble</h2>
+      <hr class="rule">
+      <p class="lede">
+        Une boucle ibérique en voiture électrique, calée autour d'un rendez-vous
+        familial fixe : un mariage à Guimarães début août. Aller contemplatif
+        par la côte cantabrique avec halte dans les Picos de Europa, quatre
+        jours à Porto, le mariage, cinq jours à Lisbonne, puis retour rapide.
+      </p>
+    </div>
+
+    <div class="stats-band">
+      <div class="stats-grid">
+        <div class="stat"><strong>2</strong><span>Pays</span></div>
+        <div class="stat"><strong>10</strong><span>Villes étapes</span></div>
+        <div class="stat"><strong>20</strong><span>Nuits</span></div>
+        <div class="stat"><strong>1</strong><span>Mariage</span></div>
+        <div class="stat"><strong>≈ 10</strong><span>Recharges DC</span></div>
+        <div class="stat"><strong>0</strong><span>Vol</span></div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Aller par la côte</h4>
+        <ul>
+          <li>J1 · Paris → Bordeaux (580 km)</li>
+          <li>J2 · Bordeaux → Hondarribia (270 km)</li>
+          <li>J3 · Hondarribia → Santillana (250 km)</li>
+          <li>J4 · Picos de Europa → Cangas (200 km)</li>
+          <li>J5 · Cangas → Lugo (300 km)</li>
+          <li>J6 · Lugo → Porto (250 km)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Porto + mariage</h4>
+        <ul>
+          <li>J6-J9 · Porto (4 nuits, Airbnb)</li>
+          <li>J10-J13 · Villa Guimarães (4 nuits)</li>
+          <li>Cérémonie dimanche 3 août</li>
+          <li>Day-trip Braga possible</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Lisbonne</h4>
+        <ul>
+          <li>J14-J18 · Lisbonne (5 nuits)</li>
+          <li>Day-trip Sintra obligatoire</li>
+          <li>Cabo da Roca, Belém, Alfama</li>
+          <li>Fado un soir</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Retour direct</h4>
+        <ul>
+          <li>J19 · Lisbonne → Salamanque (470 km)</li>
+          <li>J20 · Salamanque → Bordeaux (700 km)</li>
+          <li>J21 · Bordeaux → Paris (580 km)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: MAP ============ -->
+<section class="pane" id="map">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cartographie</span>
+      <h2>L'itinéraire sur la carte</h2>
+      <hr class="rule">
+      <p class="lede">
+        Aller par la côte cantabrique (trait plein terracotta).
+        Retour direct par Salamanque (trait pointillé bleu).
+        Cliquez sur les pastilles pour les détails.
+      </p>
+    </div>
+
+    <div id="leaflet-map"></div>
+
+    <div class="map-legend">
+      <div class="legend-item"><span class="legend-dot start"></span> Paris (départ et arrivée)</div>
+      <div class="legend-item"><span class="legend-dot fixed"></span> Étape réservée (Porto, villa)</div>
+      <div class="legend-item"><span class="legend-dot todo"></span> Étape à réserver</div>
+      <div class="legend-item"><span class="legend-line go"></span> Trajet aller (côte cantabrique)</div>
+      <div class="legend-item"><span class="legend-line back"></span> Trajet retour (direct)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: ROUTE ============ -->
+<section class="pane" id="route">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Itinéraire détaillé</span>
+      <h2>Jour par jour</h2>
+      <hr class="rule">
+    </div>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="step-head"><span class="step-day">J1</span><span class="step-date">Jeu. 23 juillet</span></div>
+        <h3>Paris → Bordeaux <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 580 km · 1 charge DC en route · Nuit Bordeaux</p>
+        <p class="highlight">Crochet possible par Saint-Émilion en milieu d'après-midi : vieille ville médiévale + dégustation. Soir : place de la Bourse au coucher du soleil.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J2</span><span class="step-date">Ven. 24 juillet</span></div>
+        <h3>Bordeaux → Hondarribia <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 270 km · 1 charge DC · Étape courte · Nuit Hondarribia</p>
+        <p class="highlight">Hondarribia : vieille ville fortifiée colorée, beaucoup moins touristique que Donostia et 30 à 40 % moins chère. Soir pintxos en parte vieja, ou navette 20 min vers la parte vieja de San Sebastián (Bar Néstor, Ganbara, La Cuchara de San Telmo).</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J3</span><span class="step-date">Sam. 25 juillet</span></div>
+        <h3>Hondarribia → Santillana del Mar <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 250 km · 1 charge DC · Nuit Santillana ou Comillas</p>
+        <p class="highlight">Détour possible par Gaztelugatxe (escalier 241 marches, îlot de Game of Thrones). Soir : Santillana del Mar, village médiéval intact + El Capricho de Gaudí à Comillas.</p>
+      </div>
+
+      <div class="step flag">
+        <div class="step-head"><span class="step-day">J4</span><span class="step-date">Dim. 26 juillet</span></div>
+        <h3>Picos de Europa <span class="badge todo">à réserver · Cangas / Llanes</span></h3>
+        <p class="meta">≈ 200 km en jour (avec détour Picos) · Nuit Cangas de Onís ou Llanes</p>
+        <p class="highlight">Le clou du voyage côté nature. Matin : route vers les <strong>Lacs de Covadonga</strong> (Enol et Ercina), sanctuaire dans la falaise, ascension panoramique en VE limitée — privilégier la navette obligatoire en haute saison. Après-midi côte asturienne : <strong>Playa de Gulpiyuri</strong> (plage intérieure unique au monde) ou flânerie à Llanes (port coloré).</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J5</span><span class="step-date">Lun. 27 juillet</span></div>
+        <h3>Cangas → Lugo <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 300 km · 1-2 charges DC · Nuit Lugo</p>
+        <p class="highlight">Route le long de la côte asturienne. Pause déjeuner conseillée à <strong>Cudillero</strong> (village amphithéâtre coloré, plats de pêcheurs). Soir Lugo : seule muraille romaine au monde encore intacte sur tout son périmètre (2 km, on marche dessus, UNESCO).</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J6</span><span class="step-date">Mar. 28 juillet</span></div>
+        <h3>Lugo → Porto <span class="badge book">arrivée Airbnb</span></h3>
+        <p class="meta">≈ 250 km · 1 charge DC · Check-in Porto</p>
+        <p class="highlight">Dernière étape de l'aller. Arrivée à Porto en fin d'après-midi, premier dîner sur la Ribeira.</p>
+      </div>
+
+      <div class="step flag fixed">
+        <div class="step-head"><span class="step-day">J6 → J9</span><span class="step-date">Mar. 28 → Ven. 31 juillet</span></div>
+        <h3>Porto · 4 nuits <span class="badge book">réservé · Airbnb</span></h3>
+        <p class="meta">Appartement entier · même hébergement les 4 nuits</p>
+        <p class="highlight">Caves de porto à Vila Nova de Gaia, Livraria Lello, pont Dom Luís au coucher, pastéis de nata, fado dans la Ribeira, marché de Bolhão. Quatre jours pour respirer.</p>
+      </div>
+
+      <div class="step flag fixed">
+        <div class="step-head"><span class="step-day">J10 → J13</span><span class="step-date">Sam. 1<sup>er</sup> → Mar. 4 août</span></div>
+        <h3>Villa de Guimarães · Mariage <span class="badge book">réservé</span></h3>
+        <p class="meta">≈ 60 km depuis Porto · 4 nuits · Mariage le dimanche 3 août</p>
+        <p class="highlight">Centre historique UNESCO, berceau du Portugal. Day-trip possible vers Braga et la basilique de Bom Jesus. Témoin d'un mariage le dimanche.</p>
+      </div>
+
+      <div class="step flag">
+        <div class="step-head"><span class="step-day">J14 → J18</span><span class="step-date">Mer. 5 → Dim. 9 août</span></div>
+        <h3>Lisbonne · 5 nuits <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 365 km depuis Guimarães · même hébergement</p>
+        <p class="highlight">Alfama, Belém, Sintra, Cabo da Roca, Cascais, fado authentique. Cinq jours pour explorer la capitale et ses alentours sans courir.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J19</span><span class="step-date">Lun. 10 août</span></div>
+        <h3>Lisbonne → Salamanque <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 470 km · 1-2 charges DC · Nuit Salamanque</p>
+        <p class="highlight">Retour amorcé sans hâte. Plaza Mayor au crépuscule, tapas en terrasse, pierre dorée.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J20</span><span class="step-date">Mar. 11 août</span></div>
+        <h3>Salamanque → Bordeaux <span class="badge todo">à réserver</span></h3>
+        <p class="meta">≈ 700 km · 2 charges DC · Étape la plus longue · Nuit Bordeaux</p>
+        <p class="highlight">Journée de route franche, traversée des Pyrénées. Dernière nuit ibérique du voyage.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-day">J21</span><span class="step-date">Mer. 12 août</span></div>
+        <h3>Bordeaux → Paris</h3>
+        <p class="meta">≈ 580 km · 1 charge DC · Retour à la maison</p>
+        <p class="highlight">La boucle se ferme. ≈ 4 300 km au compteur, deux pays, vingt nuits, beaucoup d'images.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: STAYS ============ -->
+<section class="pane" id="stays">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Logistique</span>
+      <h2>Hébergements</h2>
+      <hr class="rule">
+      <p class="lede">
+        Deux hébergements verrouillés (Porto et la villa). Reste douze nuits à
+        compléter — fiches prêtes à remplir au fur et à mesure des réservations.
+      </p>
+    </div>
+
+    <div class="stays-list">
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Bordeaux · aller</h4>
+          <span class="stay-dates">Jeu. 23 juillet · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Appart Chartrons / hôtel 3*</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>80–150 € pour 4 personnes</dd></div>
+            <div class="stay-field"><dt>Quartier privilégié</dt><dd>Chartrons, centre, ou Mérignac/Pessac (tram)</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Mama+Shelter+Bordeaux" target="_blank" rel="noopener">Mama Shelter Bordeaux</a>
+                <span class="suggest-meta">Hôtel 3* design · ~150 € · Bastide</span>
+                <p class="suggest-why">Familial, rooftop, ambiance hip. Chambre quadruple possible. Parking sur place.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+de+Seze+Bordeaux" target="_blank" rel="noopener">Hôtel de Sèze</a>
+                <span class="suggest-meta">Hôtel 4* charme · ~200 € · Triangle d'Or</span>
+                <p class="suggest-why">Manoir XVIIIe, quartier vivant, à 10 min à pied de la Garonne.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=ibis+budget+Bordeaux+Merignac" target="_blank" rel="noopener">ibis budget Mérignac</a>
+                <span class="suggest-meta">Hôtel éco · ~90 € · périphérie tram</span>
+                <p class="suggest-why">2 chambres sous 100 € total possible. Parking gratuit, tram pour le centre.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Hondarribia <span style="font-size:0.7em; color:var(--ink-soft); font-weight:400">/ alt. Donostia centre</span></h4>
+          <span class="stay-dates">Ven. 24 juillet · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Pension casco viejo Hondarribia ou Airbnb fortifications</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>90–150 € (vs 130–200 € à Donostia centre)</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Vieille ville fortifiée colorée, parte vieja accessible à pied, prix août raisonnables</dd></div>
+            <div class="stay-field"><dt>Accès Donostia</dt><dd>20 min en voiture ou bus E20 toutes les 15 min</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.paradores.es/fr/parador/parador-de-hondarribia" target="_blank" rel="noopener">Parador de Hondarribia</a>
+                <span class="suggest-meta">Parador 4* · ~250 € · château fort XVe</span>
+                <p class="suggest-why">Dormir dans un palais de Charles Quint, vue baie de Txingudi. Une nuit qui marque.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Jaizkibel+Hondarribia" target="_blank" rel="noopener">Hotel Jaizkibel</a>
+                <span class="suggest-meta">Hôtel 3* · ~170 € · casco viejo</span>
+                <p class="suggest-why">Maison basque traditionnelle au cœur de la vieille ville fortifiée. Familial.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rio+Bidasoa+Hondarribia" target="_blank" rel="noopener">Hotel Río Bidasoa</a>
+                <span class="suggest-meta">Hôtel 3* · ~140 € · bord rivière</span>
+                <p class="suggest-why">Bon rapport qualité/prix, parking, accessible à pied de la vieille ville.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Santillana del Mar / Comillas</h4>
+          <span class="stay-dates">Sam. 25 juillet · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Casa rural ou hôtel charme</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>90–150 €</dd></div>
+            <div class="stay-field"><dt>Plateformes</dt><dd>Toprural, Escapada Rural, Booking</dd></div>
+            <div class="stay-field"><dt>Lieu privilégié</dt><dd>Santillana intra-muros ou Comillas (mer)</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.paradores.es/fr/parador/parador-de-santillana-gil-blas" target="_blank" rel="noopener">Parador Gil Blas</a>
+                <span class="suggest-meta">Parador 4* · ~200 € · intramural Santillana</span>
+                <p class="suggest-why">Maison noble XVIIe sur la Plaza Mayor. Dormir DANS le village médiéval, magique au crépuscule.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Casa+del+Marques+Santillana" target="_blank" rel="noopener">Casa del Marqués</a>
+                <span class="suggest-meta">Hôtel charme · ~180 € · Santillana</span>
+                <p class="suggest-why">Maison de maître XVe, intramural, ambiance authentique.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Comillas" target="_blank" rel="noopener">Hotel Comillas</a>
+                <span class="suggest-meta">Hôtel 2* · ~120 € · centre Comillas</span>
+                <p class="suggest-why">Plus simple mais à 5 min à pied du palais de Gaudí et de la plage.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Picos de Europa · Cangas de Onís / Llanes</h4>
+          <span class="stay-dates">Dim. 26 juillet · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Casa rural ou pension Asturies</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>80–140 €</dd></div>
+            <div class="stay-field"><dt>Choix de lieu</dt><dd><strong>Cangas de Onís</strong> (porte d'entrée Picos, 15 min des lacs) ou <strong>Llanes</strong> (port coloré, mer)</dd></div>
+            <div class="stay-field"><dt>Plateformes</dt><dd>Toprural, Escapada Rural, Booking</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.paradores.es/fr/parador/parador-de-cangas-de-onis" target="_blank" rel="noopener">Parador de Cangas de Onís</a>
+                <span class="suggest-meta">Parador 4* · ~220 € · monastère XIIe</span>
+                <p class="suggest-why">Monastère bénédictin au bord du Sella, à 15 min des Lacs de Covadonga. Le clou de l'aller.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Halcon+Palace+Arriondas" target="_blank" rel="noopener">Hotel Halcón Palace</a>
+                <span class="suggest-meta">Hôtel charme · ~170 € · Arriondas</span>
+                <p class="suggest-why">Palais XVIIe rénové, parc, piscine, idéal après une journée Picos.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Casona+de+Llanes" target="_blank" rel="noopener">La Casona de Llanes</a>
+                <span class="suggest-meta">Hôtel 3* · ~130 € · Llanes port</span>
+                <p class="suggest-why">Alternative en bord de mer (Cubos de la Memoria à 5 min), si vous préférez la côte au monastère.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Lugo</h4>
+          <span class="stay-dates">Lun. 27 juillet · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Pension ou hôtel 3* intra-muraille</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>70–120 €</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Dormir à l'intérieur de la muraille romaine UNESCO</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Pazo+de+Orban+Lugo" target="_blank" rel="noopener">Hotel Pazo de Orbán</a>
+                <span class="suggest-meta">Hôtel charme · ~150 € · intra-muraille</span>
+                <p class="suggest-why">Palais XVIIIe dans la vieille ville, muraille accessible à pied.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Mendez+Nunez+Lugo" target="_blank" rel="noopener">Hotel Méndez Núñez</a>
+                <span class="suggest-meta">Hôtel 3* · ~110 € · centre</span>
+                <p class="suggest-why">Bon rapport qualité/prix, parking, à 5 min de la muraille romaine.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hostal+Domus+Plaza+Lugo" target="_blank" rel="noopener">Hostal Domus Plaza</a>
+                <span class="suggest-meta">Hostal · ~85 € · centre</span>
+                <p class="suggest-why">Option éco propre et bien notée, proche muraille.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay booked">
+        <div class="stay-head">
+          <h4>Porto · 4 nuits</h4>
+          <span class="stay-dates">Mar. 28 → Sam. 1<sup>er</sup> août</span>
+          <span class="pill ok">Réservé</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Plateforme</dt><dd>Airbnb</dd></div>
+            <div class="stay-field"><dt>Type</dt><dd>Appartement entier</dd></div>
+            <div class="stay-field"><dt>Lien</dt><dd><a href="https://www.airbnb.fr/rooms/21096822" target="_blank" rel="noopener">airbnb.fr/rooms/21096822</a></dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à confirmer (réception clé)</dd></div>
+            <div class="stay-field"><dt>Contact hôte</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Code WiFi</dt><dd class="todo">à compléter sur place</dd></div>
+            <div class="stay-field"><dt>Check-in / out</dt><dd class="todo">à confirmer avec l'hôte</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="stay booked">
+        <div class="stay-head">
+          <h4>Villa Guimarães · 4 nuits</h4>
+          <span class="stay-dates">Sam. 1<sup>er</sup> → Mar. 4 août</span>
+          <span class="pill ok">Réservé</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type</dt><dd>Villa privée — séjour groupe mariage</dd></div>
+            <div class="stay-field"><dt>Événement</dt><dd>Mariage dimanche 3 août (témoin)</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact organisateur</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Borne de recharge</dt><dd class="todo">à demander</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Lisbonne · 5 nuits</h4>
+          <span class="stay-dates">Mer. 5 → Dim. 9 août</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Appart entier (cuisine équipée)</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>120–180 € /nuit pour 4 personnes</dd></div>
+            <div class="stay-field"><dt>Quartiers privilégiés</dt><dd>Alfama, Chiado, Bairro Alto, Marvila, Anjos, Beato</dd></div>
+            <div class="stay-field"><dt>Critères clés</dt><dd>Parking obligatoire · borne VE bonus</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix séjour</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Contact hôte</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Code accès</dt><dd class="todo">à compléter sur place</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer (5 nuits, séjour entier)</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hello+Lisbon+Apartments" target="_blank" rel="noopener">Hello Lisbon Apartments</a>
+                <span class="suggest-meta">Appart entiers · ~160 €/nuit · Alfama/Bairro</span>
+                <p class="suggest-why">Réseau de gestion pro, parc d'apparts 2 chambres modernes (cuisine, AC). Service rapide.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=The+Lisboans+Apartments" target="_blank" rel="noopener">The Lisboans Apartments</a>
+                <span class="suggest-meta">Appart design · ~180 €/nuit · Mouraria</span>
+                <p class="suggest-why">Décor soigné, terrasse partagée vue toits. À 5 min d'Alfama et du métro Martim Moniz.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Feels+Like+Home+Lisbon" target="_blank" rel="noopener">Feels Like Home</a>
+                <span class="suggest-meta">Appart famille · ~170 €/nuit · centre</span>
+                <p class="suggest-why">Spécialistes apparts famille 4+, parc large, AC, balcons. Plusieurs options par quartier.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.pousadasjuventude.pt/fr/pousadas/lisboa/" target="_blank" rel="noopener">Pousada da Juventude Lisboa</a>
+                <span class="suggest-meta">Chambre 4 privée · ~110 €/nuit · Parque das Nações</span>
+                <p class="suggest-why">Backup ultra-éco. Métro direct centre, petit-déj inclus. Loin du centre historique.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Vérifier parking et borne VE dans chaque annonce. Réductions long séjour souvent automatiques au-delà de 3 nuits.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Salamanque · retour</h4>
+          <span class="stay-dates">Lun. 10 août · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Type recommandé</dt><dd>Hostal Plaza Mayor / albergue juvenil</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>70–120 €</dd></div>
+            <div class="stay-field"><dt>Quartier privilégié</dt><dd>Proche Plaza Mayor</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rector+Salamanca" target="_blank" rel="noopener">Hotel Rector</a>
+                <span class="suggest-meta">Boutique 5* · ~200 € · proche cathédrale</span>
+                <p class="suggest-why">Pour finir le voyage en beauté : palais Art déco, élégance discrète.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=NH+Salamanca+Puerta+de+la+Catedral" target="_blank" rel="noopener">NH Puerta de la Catedral</a>
+                <span class="suggest-meta">Hôtel 4* · ~140 € · cathédrale</span>
+                <p class="suggest-why">Très bien situé, chaîne fiable, parking sur réservation.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hostal+Sara+Salamanca" target="_blank" rel="noopener">Hostal Sara</a>
+                <span class="suggest-meta">Hostal · ~80 € · Plaza Mayor</span>
+                <p class="suggest-why">Option éco propre, à 30 m de la Plaza Mayor.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="stay-head">
+          <h4>Bordeaux · retour</h4>
+          <span class="stay-dates">Mar. 11 août · 1 nuit</span>
+          <span class="pill todo">À réserver</span>
+        </div>
+        <div class="stay-body">
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Astuce</dt><dd>Même hébergement qu'à l'aller possible (remise 5-10% en direct).</dd></div>
+            <div class="stay-field"><dt>Budget cible</dt><dd>80–150 €</dd></div>
+          </dl>
+          <dl class="stay-fields">
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+          </dl>
+          <div class="stay-suggestions">
+            <h5>Pistes à comparer</h5>
+            <ul class="suggest-list">
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Mama+Shelter+Bordeaux" target="_blank" rel="noopener">Mama Shelter</a>
+                <span class="suggest-meta">Hôtel 3* · ~150 € · Bastide</span>
+                <p class="suggest-why">Refaire la même qu'à l'aller pour simplifier — demander remise -10% en direct sur 2 réservations.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Yndo+Hotel+Bordeaux" target="_blank" rel="noopener">Yndo Hôtel</a>
+                <span class="suggest-meta">Boutique 5* · ~280 € · Triangle d'Or</span>
+                <p class="suggest-why">Pour clore le voyage en beauté : maison bourgeoise, design contemporain, 12 chambres uniquement.</p>
+              </li>
+              <li class="suggest-item">
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Campanile+Bordeaux+Centre+Gare+Saint+Jean" target="_blank" rel="noopener">Campanile Bordeaux Gare St-Jean</a>
+                <span class="suggest-meta">Hôtel éco · ~90 € · gare</span>
+                <p class="suggest-why">Simple et pratique pour repartir tôt vers Paris le lendemain.</p>
+              </li>
+            </ul>
+            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="cards" style="margin-top:3rem">
+      <div class="card">
+        <h4>Plateformes prioritaires</h4>
+        <ul>
+          <li><strong>pousadasjuventude.pt</strong> — Portugal éco</li>
+          <li><strong>Booking + Airbnb</strong> — comparer toujours</li>
+          <li><strong>Toprural / Escapada Rural</strong> — casas rurales</li>
+          <li><strong>Vrbo / Plum Guide</strong> — apparts familiaux</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Critères non-négociables</h4>
+        <ul>
+          <li>Parking voiture (toujours)</li>
+          <li>Borne de recharge VE = bonus</li>
+          <li>2 vrais lits doubles (jamais canapé-lit)</li>
+          <li>Annulation gratuite</li>
+          <li>Note ≥ 8/10 (Booking) ou 4,5 (Airbnb)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Urgent à réserver</h4>
+        <ul>
+          <li><strong>Lisbonne 5 nuits</strong> — sature vite</li>
+          <li><strong>Hondarribia</strong> — vieille ville, août tendu</li>
+          <li><strong>Picos de Europa</strong> — casas rurales partent vite</li>
+          <li><strong>Santillana / Comillas</strong> — village très demandé</li>
+          <li><strong>Bordeaux aller + retour</strong> — pic estival</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: BUDGET ============ -->
+<section class="pane" id="budget">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Argent</span>
+      <h2>Budget estimatif</h2>
+      <hr class="rule">
+      <p class="lede">
+        Hors villa Guimarães et hors Airbnb Porto (déjà engagés). Estimations
+        à 4 personnes, août 2026, scénario économique réaliste.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Poste</th><th>Mini</th><th>Médian</th><th>Confort</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hébergement (12 nuits hors Porto/villa)</td><td>1 200 €</td><td>1 680 €</td><td>2 160 €</td></tr>
+          <tr><td>Recharges VE (≈ 4 300 km)</td><td>240 €</td><td>330 €</td><td>410 €</td></tr>
+          <tr><td>Repas (4 pers. × 21 j)</td><td>1 050 €</td><td>1 470 €</td><td>2 000 €</td></tr>
+          <tr><td>Visites &amp; musées</td><td>320 €</td><td>480 €</td><td>630 €</td></tr>
+          <tr><td>Péages France/Espagne</td><td>100 €</td><td>120 €</td><td>140 €</td></tr>
+          <tr><td>Imprévus, extras</td><td>320 €</td><td>470 €</td><td>620 €</td></tr>
+          <tr class="total"><td>TOTAL</td><td>3 230 €</td><td>4 550 €</td><td>5 960 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="budget-grid">
+      <div class="budget-box">
+        <h4>Scénario éco</h4>
+        <p>Pousadas, pensions, casas rurales. Cuisine équipée la moitié des soirs, déjeuner sur le pouce.</p>
+        <div class="total">≈ 3 200 €</div>
+      </div>
+      <div class="budget-box featured">
+        <h4>Scénario médian (recommandé)</h4>
+        <p>Apparts confortables Lisbonne, casas rurales et hostales charme aux escales, restos un soir sur deux, quelques visites payantes.</p>
+        <div class="total">≈ 4 600 €</div>
+      </div>
+      <div class="budget-box">
+        <h4>Scénario confort</h4>
+        <p>Hôtels 3-4* centraux partout, restos quotidiens, toutes les visites majeures, flexibilité maximale.</p>
+        <div class="total">≈ 6 000 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: EV ============ -->
+<section class="pane" id="ev">
+  <div class="wrap">
+    <div class="ve-band">
+      <div class="section-head">
+        <span class="eyebrow">Mobilité</span>
+        <h2>Plan de recharge VE</h2>
+        <hr class="rule">
+        <p class="lede">
+          Voiture 500 km d'autonomie WLTP, soit ≈ 400-450 km utiles à 130 km/h
+          avec clim en plein été. Plan de charge à valider sur ABRP avant départ.
+        </p>
+      </div>
+
+      <div class="ve-grid">
+        <div class="ve-item"><strong>≈ 4 300 km</strong><span>Distance totale aller-retour</span></div>
+        <div class="ve-item"><strong>9-11 charges DC</strong><span>sur l'ensemble du voyage</span></div>
+        <div class="ve-item"><strong>≈ 330 €</strong><span>coût électrique total estimé</span></div>
+        <div class="ve-item"><strong>700 km / jour</strong><span>plafond confortable retenu</span></div>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:2.5rem">
+      <div class="card">
+        <h4>Apps à installer</h4>
+        <ul>
+          <li><strong>ABRP</strong> — planificateur de route</li>
+          <li><strong>Chargemap</strong> — carte multi-opérateurs</li>
+          <li><strong>Iberdrola, Endesa X</strong> — Espagne</li>
+          <li><strong>MOBI.E</strong> — réseau Portugal</li>
+          <li><strong>Tesla</strong> — superchargeurs ouverts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Étapes les plus tendues</h4>
+        <ul>
+          <li><strong>J4 Picos de Europa</strong> — montagne + lacs Covadonga, dénivelé costaud</li>
+          <li><strong>J5 Cangas→Lugo</strong> — 300 km côte asturienne, Galice intérieure peu desservie</li>
+          <li><strong>J20 Salamanque→Bordeaux</strong> — 700 km + Pyrénées</li>
+          <li><strong>Réserve 20% mini</strong> à chaque arrivée</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Bons réflexes</h4>
+        <ul>
+          <li>Vérifier hébergements avec borne 22 kW/AC</li>
+          <li>Charge de nuit gratuite si dispo (toujours demander)</li>
+          <li>110 km/h en cas de chaleur extrême</li>
+          <li>Carte Chargemap Pass utile partout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: HIGHLIGHTS ============ -->
+<section class="pane" id="highlights">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">À ne pas manquer</span>
+      <h2>Visites par étape</h2>
+      <hr class="rule">
+    </div>
+
+    <div class="place">
+      <div class="place-name">Bordeaux<small>J1 · J20</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Place de la Bourse</strong> Miroir d'eau au coucher du soleil</div>
+        <div class="place-item"><strong>Saint-Émilion</strong> Détour vignoble UNESCO</div>
+        <div class="place-item"><strong>Rue Saint-Catherine</strong> Plus longue rue piétonne d'Europe</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Hondarribia &amp; Donostia<small>J2</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Hondarribia</strong> Vieille ville fortifiée colorée, port de pêche</div>
+        <div class="place-item"><strong>Pintxos parte vieja</strong> Bar Néstor, Ganbara, La Cuchara de San Telmo</div>
+        <div class="place-item"><strong>Plage de la Concha</strong> L'une des plus belles plages urbaines d'Europe</div>
+        <div class="place-item"><strong>Mont Igueldo</strong> Funiculaire et coucher de soleil sur la baie</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Santillana / Comillas<small>J3</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Santillana del Mar</strong> Village médiéval intact, "ni saint, ni plat, ni mer"</div>
+        <div class="place-item"><strong>El Capricho de Gaudí</strong> Palais coloré du maître, avant la Sagrada</div>
+        <div class="place-item"><strong>Comillas</strong> Plage et palais Sobrellano néogothique</div>
+        <div class="place-item"><strong>Gaztelugatxe</strong> Détour : escalier 241 marches sur îlot</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Picos de Europa<small>J4</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Lacs de Covadonga</strong> Enol et Ercina, sanctuaire dans la falaise (navette obligatoire en août)</div>
+        <div class="place-item"><strong>Playa de Gulpiyuri</strong> Plage intérieure à 100 m de la mer, unique au monde</div>
+        <div class="place-item"><strong>Llanes</strong> Port coloré + "Cubos de la Memoria" d'Ibarrola</div>
+        <div class="place-item"><strong>Cangas de Onís</strong> Pont romain et truite des rivières</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Lugo<small>J5</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Muraille romaine</strong> UNESCO · seule au monde intacte sur 2 km</div>
+        <div class="place-item"><strong>Cathédrale Sainte-Marie</strong> Romane-gothique, sur le chemin de Compostelle</div>
+        <div class="place-item"><strong>Tapas Praza do Campo</strong> Spécialité galicienne : pulpo a feira</div>
+        <div class="place-item"><strong>Cudillero</strong> Pause déjeuner sur la route : village amphithéâtre coloré</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Porto<small>J6 → J9</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Caves Vila Nova de Gaia</strong> Graham's, Taylor's, Sandeman</div>
+        <div class="place-item"><strong>Livraria Lello</strong> L'inspiration de Harry Potter</div>
+        <div class="place-item"><strong>Pont Dom Luís</strong> À pied, étage supérieur, au coucher</div>
+        <div class="place-item"><strong>Cais da Ribeira</strong> Dîner sur le Douro + fado</div>
+        <div class="place-item"><strong>São Bento</strong> Gare aux 20 000 azulejos</div>
+        <div class="place-item"><strong>Marché Bolhão</strong> Réhabilité, déjeuner local</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Guimarães<small>J10 → J13</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Centro histórico</strong> UNESCO, berceau du Portugal</div>
+        <div class="place-item"><strong>Castelo</strong> "Aqui nasceu Portugal"</div>
+        <div class="place-item"><strong>Braga, Bom Jesus</strong> Day-trip 30 min : escalier baroque</div>
+        <div class="place-item"><strong>Mariage</strong> Le moment central du voyage</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Lisbonne<small>J14 → J18</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Alfama</strong> Vieux quartier maure, tram 28</div>
+        <div class="place-item"><strong>Belém</strong> Tour, monastère, vrais pastéis</div>
+        <div class="place-item"><strong>Sintra</strong> Palais Pena + Quinta da Regaleira</div>
+        <div class="place-item"><strong>Cabo da Roca</strong> Point le plus à l'ouest d'Europe</div>
+        <div class="place-item"><strong>LX Factory</strong> Hub créatif, friches reconverties</div>
+        <div class="place-item"><strong>Fado</strong> Mesa de Frades ou Tasca do Chico</div>
+      </div>
+    </div>
+
+    <div class="place">
+      <div class="place-name">Salamanque<small>J19</small></div>
+      <div class="place-list">
+        <div class="place-item"><strong>Plaza Mayor</strong> Coucher de soleil sur pierre dorée</div>
+        <div class="place-item"><strong>Université</strong> Plus vieille d'Espagne, façade plateresque</div>
+        <div class="place-item"><strong>Cathédrales</strong> La nouvelle abrite l'ancienne</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: PHOTOS ============ -->
+<section class="pane" id="photos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Souvenirs</span>
+      <h2>Galerie photos</h2>
+      <hr class="rule">
+      <p class="lede">
+        Avant le départ : photos d'inspiration. Pendant le voyage :
+        à compléter avec vos propres images.
+      </p>
+    </div>
+
+    <div class="photo-help">
+      <strong>Pour ajouter vos photos :</strong> déposez-les dans le dossier
+      <code>images/</code> à côté du fichier <code>index.html</code>, puis
+      renommez-les selon les slugs ci-dessous (ex. <code>donostia-1.jpg</code>).
+      Format conseillé : 1200×900 px, JPG optimisé.
+    </div>
+
+    <div class="photo-section">
+      <h3>Bordeaux & vignobles</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="bordeaux-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Place de la Bourse</strong>Le miroir d'eau au coucher du soleil</div></div>
+        <div class="photo-card" data-img="bordeaux-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Saint-Émilion</strong>Vignobles et village médiéval</div></div>
+        <div class="photo-card" data-img="bordeaux-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Quartier Chartrons</strong>Bords de Garonne</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Hondarribia &amp; côte basque</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="hondarribia-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Hondarribia</strong>Vieille ville fortifiée colorée</div></div>
+        <div class="photo-card" data-img="hondarribia-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Plage de la Concha</strong>Baie de Donostia en demi-lune</div></div>
+        <div class="photo-card" data-img="hondarribia-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Pintxos</strong>Parte vieja Donostia, Bar Néstor</div></div>
+        <div class="photo-card" data-img="hondarribia-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Mont Igueldo</strong>Coucher de soleil sur la baie</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Cantabrie · Santillana &amp; Comillas</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="cantabrie-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Santillana del Mar</strong>Village médiéval intact</div></div>
+        <div class="photo-card" data-img="cantabrie-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>El Capricho</strong>Palais de Gaudí à Comillas</div></div>
+        <div class="photo-card" data-img="cantabrie-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Côte cantabrique</strong>Falaises et plages</div></div>
+        <div class="photo-card" data-img="cantabrie-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Picos de Europa</strong>Détour montagne possible</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Picos de Europa &amp; Asturies</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="picos-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Lacs de Covadonga</strong>Enol et Ercina, Picos de Europa</div></div>
+        <div class="photo-card" data-img="picos-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Sanctuaire de Covadonga</strong>Dans la falaise</div></div>
+        <div class="photo-card" data-img="picos-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Playa de Gulpiyuri</strong>Plage intérieure unique</div></div>
+        <div class="photo-card" data-img="picos-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Llanes</strong>Port coloré, Cubos de la Memoria</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Galice · Lugo</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="lugo-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Muraille romaine</strong>UNESCO, 2 km intacts</div></div>
+        <div class="photo-card" data-img="lugo-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Cathédrale</strong>Sur le chemin de Compostelle</div></div>
+        <div class="photo-card" data-img="lugo-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Pulpo a feira</strong>Spécialité galicienne</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Porto</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="porto-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Pont Dom Luís</strong>Au coucher du soleil</div></div>
+        <div class="photo-card" data-img="porto-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Ribeira</strong>Façades colorées sur le Douro</div></div>
+        <div class="photo-card" data-img="porto-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Livraria Lello</strong>L'escalier mythique</div></div>
+        <div class="photo-card" data-img="porto-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Caves Vila Nova de Gaia</strong>Dégustation de porto</div></div>
+        <div class="photo-card" data-img="porto-5.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>São Bento</strong>20 000 azulejos</div></div>
+        <div class="photo-card" data-img="porto-6.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Cais da Ribeira</strong>Soirée fado</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Guimarães &amp; mariage</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="guimaraes-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Centre historique</strong>UNESCO, berceau du Portugal</div></div>
+        <div class="photo-card" data-img="guimaraes-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Castelo</strong>"Aqui nasceu Portugal"</div></div>
+        <div class="photo-card" data-img="guimaraes-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Bom Jesus, Braga</strong>Escalier baroque</div></div>
+        <div class="photo-card" data-img="guimaraes-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Le mariage</strong>3 août, le moment central</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Lisbonne</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="lisbonne-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Alfama</strong>Tram 28 et toits orange</div></div>
+        <div class="photo-card" data-img="lisbonne-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Belém</strong>Monastère des Jerónimos</div></div>
+        <div class="photo-card" data-img="lisbonne-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Pasteis de Belém</strong>Recette secrète depuis 1837</div></div>
+        <div class="photo-card" data-img="lisbonne-4.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Sintra · Pena</strong>Palais romantique multicolore</div></div>
+        <div class="photo-card" data-img="lisbonne-5.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Quinta da Regaleira</strong>Puits initiatique</div></div>
+        <div class="photo-card" data-img="lisbonne-6.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Cabo da Roca</strong>Point le plus à l'ouest d'Europe</div></div>
+        <div class="photo-card" data-img="lisbonne-7.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Fado</strong>Soirée Mesa de Frades</div></div>
+        <div class="photo-card" data-img="lisbonne-8.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>LX Factory</strong>Friches créatives</div></div>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <h3>Salamanque · retour</h3>
+      <div class="photo-grid">
+        <div class="photo-card" data-img="salamanque-1.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Plaza Mayor</strong>Pierre dorée au crépuscule</div></div>
+        <div class="photo-card" data-img="salamanque-2.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Université</strong>Façade plateresque, la grenouille</div></div>
+        <div class="photo-card" data-img="salamanque-3.jpg"><span class="photo-empty-icon">+</span><div class="photo-info"><strong>Cathédrales</strong>L'ancienne et la nouvelle</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANE: PRACTICAL ============ -->
+<section class="pane" id="practical">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pratique</span>
+      <h2>Avant de partir</h2>
+      <hr class="rule">
+    </div>
+
+    <div class="practical">
+      <div class="practical-box">
+        <h4>Documents</h4>
+        <ul>
+          <li>Carte d'identité valide (UE, Schengen)</li>
+          <li>Permis de conduire</li>
+          <li>Carte verte assurance auto</li>
+          <li>Carte européenne d'assurance maladie</li>
+          <li>Constat européen amiable</li>
+        </ul>
+      </div>
+      <div class="practical-box">
+        <h4>Apps utiles</h4>
+        <ul>
+          <li><kbd>ABRP</kbd> Planificateur VE</li>
+          <li><kbd>Chargemap</kbd> Bornes recharge</li>
+          <li><kbd>Booking</kbd> · <kbd>Airbnb</kbd> Résa</li>
+          <li><kbd>Google Maps</kbd> hors-ligne pré-téléchargé</li>
+          <li><kbd>WhatsApp</kbd> Famille mariage</li>
+        </ul>
+      </div>
+      <div class="practical-box">
+        <h4>Urgences</h4>
+        <ul>
+          <li><kbd>112</kbd> Numéro d'urgence européen</li>
+          <li><kbd>15</kbd> SAMU France</li>
+          <li><kbd>061</kbd> Urgences médicales Espagne</li>
+          <li><kbd>117</kbd> Police Portugal</li>
+          <li>Ambassade FR à Lisbonne : +351 213 939 100</li>
+        </ul>
+      </div>
+      <div class="practical-box">
+        <h4>Bagages voiture</h4>
+        <ul>
+          <li>Tenue mariage + cintres</li>
+          <li>Trousse de secours</li>
+          <li>Adaptateurs prises (FR/ES/PT identiques)</li>
+          <li>Câble recharge type 2 (en cas de borne AC)</li>
+          <li>Glacière + eau pour la route</li>
+          <li>Crème solaire ≥ 50</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- /.layout -->
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <span class="eyebrow">Bon voyage</span>
+    <h3>Boa viagem · Buen viaje</h3>
+    <p>Carnet de route préparé en mai 2026 — à imprimer, partager, annoter.</p>
+    <p>Document évolutif. Dernière mise à jour : 10 mai 2026.</p>
+    <p class="sig">— Famille Mogoro</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function() {
+  // ----- Tabs -----
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.pane');
+  let mapInitialized = false;
+
+  const panesContainer = document.querySelector('.panes');
+  function activate(tab) {
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    panes.forEach(p => p.classList.toggle('active', p.id === tab));
+    history.replaceState(null, '', '#' + tab);
+    if (tab === 'map' && !mapInitialized) {
+      initMap();
+      mapInitialized = true;
+    }
+    if (panesContainer) panesContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  buttons.forEach(b => b.addEventListener('click', () => activate(b.dataset.tab)));
+
+  const initial = (location.hash || '#overview').slice(1);
+  if (document.getElementById(initial)) {
+    activate(initial);
+  }
+
+  // ----- Sidebar collapse -----
+  const layout = document.querySelector('.layout');
+  const toggle = document.querySelector('.sidebar-toggle');
+  if (layout && toggle) {
+    if (localStorage.getItem('sidebar-collapsed') === 'true') {
+      layout.classList.add('collapsed');
+    }
+    toggle.addEventListener('click', () => {
+      layout.classList.toggle('collapsed');
+      localStorage.setItem('sidebar-collapsed', layout.classList.contains('collapsed'));
+    });
+  }
+
+  // ----- Map -----
+  function initMap() {
+    const map = L.map('leaflet-map', { scrollWheelZoom: false }).setView([43.5, -5], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Trajet aller via la côte cantabrique + Picos de Europa
+    const goStops = [
+      { name: 'Paris',              coord: [48.8566,  2.3522], type: 'start', label: 'Départ · 23 juillet' },
+      { name: 'Bordeaux',           coord: [44.8378, -0.5792], type: 'todo',  label: 'J1 · 23 juillet · à réserver' },
+      { name: 'Hondarribia',        coord: [43.3623, -1.7975], type: 'todo',  label: 'J2 · 24 juillet · vieille ville fortifiée' },
+      { name: 'Santillana del Mar', coord: [43.3905, -4.1023], type: 'todo',  label: 'J3 · 25 juillet · village médiéval + Gaudí' },
+      { name: 'Cangas de Onís',     coord: [43.3504, -5.1306], type: 'todo',  label: 'J4 · 26 juillet · Picos de Europa + Lacs Covadonga' },
+      { name: 'Lugo',               coord: [43.0096, -7.5567], type: 'todo',  label: 'J5 · 27 juillet · muraille romaine UNESCO' },
+      { name: 'Porto',              coord: [41.1579, -8.6291], type: 'fixed', label: 'J6-J9 · 4 nuits · Airbnb réservé' },
+      { name: 'Guimarães',          coord: [41.4419, -8.2962], type: 'fixed', label: 'J10-J13 · villa · mariage 3 août' },
+      { name: 'Lisbonne',           coord: [38.7223, -9.1393], type: 'todo',  label: 'J14-J18 · 5 nuits · à réserver' }
+    ];
+
+    // Trajet retour direct
+    const backStops = [
+      { name: 'Lisbonne',   coord: [38.7223, -9.1393] },
+      { name: 'Salamanque', coord: [40.9701, -5.6635], type: 'todo', label: 'J19 · 10 août · retour' },
+      { name: 'Bordeaux',   coord: [44.8378, -0.5792], type: 'todo', label: 'J20 · 11 août · retour' },
+      { name: 'Paris',      coord: [48.8566,  2.3522], type: 'start', label: 'Arrivée · 12 août' }
+    ];
+
+    const colors = { start: '#1A1A1A', todo: '#B65340', fixed: '#1F4E5F' };
+
+    // Polylines
+    L.polyline(goStops.map(s => s.coord), { color: '#B65340', weight: 4, opacity: 0.85 }).addTo(map);
+    L.polyline(backStops.map(s => s.coord), { color: '#1F4E5F', weight: 3, opacity: 0.85, dashArray: '8 8' }).addTo(map);
+
+    // Markers déduplliqués
+    const allStops = [...goStops, ...backStops.slice(1)];
+    const seen = new Set();
+    allStops.forEach(s => {
+      const key = s.name;
+      if (seen.has(key)) return;
+      seen.add(key);
+      L.circleMarker(s.coord, {
+        radius: 9,
+        fillColor: colors[s.type] || '#B65340',
+        color: '#FAF6EF',
+        weight: 2,
+        fillOpacity: 1
+      })
+      .bindPopup('<strong>' + s.name + '</strong>' + (s.label || ''))
+      .addTo(map);
+    });
+
+    map.fitBounds(L.latLngBounds(allStops.map(s => s.coord)).pad(0.1));
+  }
+
+  // ----- Service Worker (PWA) -----
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {
+        // SW registration failed (e.g. dev local sans https) — ignore silencieusement
+      });
+    });
+  }
+
+  // ----- Photos: replace placeholder with real image if available -----
+  document.querySelectorAll('.photo-card[data-img]').forEach(card => {
+    const file = card.dataset.img;
+    const img = new Image();
+    img.onload = () => {
+      card.classList.add('has-image');
+      const realImg = document.createElement('img');
+      realImg.src = 'images/' + file;
+      realImg.alt = '';
+      card.insertBefore(realImg, card.firstChild);
+      const icon = card.querySelector('.photo-empty-icon');
+      if (icon) icon.remove();
+    };
+    img.onerror = () => {};
+    img.src = 'images/' + file;
+  });
+})();
+</script>
+
+</body>
+</html>
