@@ -622,6 +622,196 @@
     font-family: var(--serif);
   }
 
+  /* ============ PRIORITÉ ============ */
+  .pill.urgent { background: #C0392B; color: #FFF5F2; }
+  .pill.soon { background: #E67E22; color: #FFF8EF; }
+  .pill.easy { background: var(--olive); color: #F4F7EC; }
+  .stay.priority-1 { border-left-color: #C0392B; }
+  .stay.priority-2 { border-left-color: #E67E22; }
+  .stay.priority-3 { border-left-color: var(--olive); }
+
+  /* ============ BLOC À RÉSERVER ============ */
+  .reco {
+    grid-column: 1 / -1;
+    margin: 0.4rem 0 1rem;
+    padding: 1.1rem 1.3rem;
+    background: linear-gradient(180deg, #FFF8F0 0%, #FAF6EF 100%);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .reco { grid-template-columns: 1fr; }
+  }
+  .reco-tag {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .reco-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--azulejo);
+    margin: 0 0 0.3rem;
+    line-height: 1.2;
+  }
+  .reco-name small {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 0.4rem;
+  }
+  .reco-detail {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0.2rem 0;
+    line-height: 1.45;
+  }
+  .reco-detail strong { color: var(--ink); font-weight: 600; }
+  .reco-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    min-width: 160px;
+  }
+  @media (max-width: 700px) {
+    .reco-cta { align-items: flex-start; min-width: 0; }
+  }
+  .reco-price {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .reco-price small {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  .btn-reserve {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--terracotta);
+    color: var(--cream) !important;
+    padding: 0.7rem 1.3rem;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(182,83,64,0.25);
+  }
+  .btn-reserve:hover {
+    background: var(--terracotta-dark);
+    transform: translateY(-1px);
+  }
+  .btn-reserve.alt {
+    background: var(--azulejo);
+    box-shadow: 0 2px 8px rgba(31,78,95,0.25);
+  }
+  .btn-reserve.alt:hover { background: var(--azulejo-soft); }
+  .reco-rating {
+    font-size: 0.8rem;
+    color: var(--olive);
+    font-weight: 600;
+  }
+  .reco-rating .star { color: var(--gold); }
+
+  .reco-multi {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.8rem;
+  }
+  .reco-multi .reco {
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+  .reco-multi .reco-cta { align-items: flex-start; min-width: 0; }
+
+  /* ============ BANDEAU PRIORITÉS ============ */
+  .booking-checklist {
+    background: var(--azulejo);
+    color: var(--cream);
+    padding: 1.5rem 1.8rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+  }
+  .booking-checklist h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .booking-checklist ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.6rem 1.4rem;
+  }
+  .booking-checklist li {
+    font-size: 0.88rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed rgba(250,246,239,0.2);
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .booking-checklist li strong {
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    min-width: 1.4rem;
+  }
+  .booking-checklist .ck-prio {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.5rem;
+    border-radius: 100px;
+    margin-left: auto;
+  }
+  .booking-checklist .ck-prio.urgent { background: #C0392B; color: #FFF; }
+  .booking-checklist .ck-prio.soon { background: #E67E22; color: #FFF; }
+  .booking-checklist .ck-prio.easy { background: var(--olive); color: #FFF; }
+  .booking-checklist .ck-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(250,246,239,0.3);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--cream);
+  }
+  .booking-checklist .ck-total strong { color: var(--gold); font-size: 1.4rem; }
+
   /* ============ CARDS ============ */
   .cards {
     display: grid;
@@ -1265,7 +1455,7 @@
       <div class="card">
         <h4>Porto + mariage</h4>
         <ul>
-          <li>J6-J9 · Porto (4 nuits, Airbnb)</li>
+          <li>J6-J9 · Porto (4 nuits — appart à réserver)</li>
           <li>J10-J13 · Villa Guimarães (4 nuits)</li>
           <li>Cérémonie dimanche 3 août</li>
           <li>Day-trip Braga possible</li>
@@ -1310,7 +1500,7 @@
 
     <div class="map-legend">
       <div class="legend-item"><span class="legend-dot start"></span> Paris (départ et arrivée)</div>
-      <div class="legend-item"><span class="legend-dot fixed"></span> Étape réservée (Porto, villa)</div>
+      <div class="legend-item"><span class="legend-dot fixed"></span> Étape réservée (villa Guimarães)</div>
       <div class="legend-item"><span class="legend-dot todo"></span> Étape à réserver</div>
       <div class="legend-item"><span class="legend-line go"></span> Trajet aller (côte cantabrique)</div>
       <div class="legend-item"><span class="legend-line back"></span> Trajet retour (direct)</div>
@@ -1370,10 +1560,10 @@
         <p class="highlight">Dernière étape de l'aller. Arrivée à Porto en fin d'après-midi, premier dîner sur la Ribeira.</p>
       </div>
 
-      <div class="step flag fixed">
+      <div class="step flag">
         <div class="step-head"><span class="step-day">J6 → J9</span><span class="step-date">Mar. 28 → Ven. 31 juillet</span></div>
-        <h3>Porto · 4 nuits <span class="badge book">réservé · Airbnb</span></h3>
-        <p class="meta">Appartement entier · même hébergement les 4 nuits</p>
+        <h3>Porto · 4 nuits <span class="badge todo">à réserver</span></h3>
+        <p class="meta">Appartement entier souhaité · 2 chambres · parking · même hébergement les 4 nuits</p>
         <p class="highlight">Caves de porto à Vila Nova de Gaia, Livraria Lello, pont Dom Luís au coucher, pastéis de nata, fado dans la Ribeira, marché de Bolhão. Quatre jours pour respirer.</p>
       </div>
 
@@ -1419,253 +1609,323 @@
 <section class="pane" id="stays">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Logistique</span>
+      <span class="eyebrow">Logistique · Prêt à réserver</span>
       <h2>Hébergements</h2>
       <hr class="rule">
       <p class="lede">
-        Deux hébergements verrouillés (Porto et la villa). Reste douze nuits à
-        compléter — fiches prêtes à remplir au fur et à mesure des réservations.
+        Une seule nuit verrouillée (villa Guimarães). Les 14 autres sont prêtes
+        à être réservées : option recommandée, prix vérifié au 14 mai 2026,
+        lien direct. Cliquez et bookez.
       </p>
+    </div>
+
+    <div class="booking-checklist">
+      <h3>Ordre de réservation conseillé</h3>
+      <ol>
+        <li><strong>1.</strong> Porto — 4 nuits — ~609 → 812 € <span class="ck-prio urgent">urgent</span></li>
+        <li><strong>2.</strong> Lisbonne — 5 nuits — ~1 209 € <span class="ck-prio urgent">urgent</span></li>
+        <li><strong>3.</strong> Hondarribia — 1 nuit — ~418 € <span class="ck-prio urgent">urgent</span></li>
+        <li><strong>4.</strong> Cangas de Onís — 1 nuit — ~251 € <span class="ck-prio soon">soon</span></li>
+        <li><strong>5.</strong> Santillana del Mar — 1 nuit — ~290 € <span class="ck-prio soon">soon</span></li>
+        <li><strong>6.</strong> Bordeaux aller — 1 nuit — ~86 € <span class="ck-prio easy">facile</span></li>
+        <li><strong>7.</strong> Lugo — 1 nuit — ~88 € <span class="ck-prio easy">facile</span></li>
+        <li><strong>8.</strong> Salamanque — 1 nuit — ~91 € <span class="ck-prio easy">facile</span></li>
+        <li><strong>9.</strong> Bordeaux retour — 1 nuit — ~95 € <span class="ck-prio easy">facile</span></li>
+      </ol>
+      <p class="ck-total">Total estimé · 14 nuits · 4 personnes — <strong>~3 137 €</strong> <span style="opacity:0.75; font-size:0.85rem;">(fourchette 2 750 → 3 900 € selon options)</span></p>
     </div>
 
     <div class="stays-list">
 
-      <article class="stay">
+      <article class="stay priority-3">
         <div class="stay-head">
           <h4>Bordeaux · aller</h4>
           <span class="stay-dates">Jeu. 23 juillet · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill easy">Étape facile · 6</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">MEININGER Hotel Bordeaux Gare Saint-Jean <small>★★★</small></p>
+              <p class="reco-detail"><strong>Chambre quadruple · 4 lits</strong> · 2,4 km centre · proche gare TGV · parking à proximité</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,6/10 Superbe</span> · annulation gratuite</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~86 €<small>1 nuit · 4 pers · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=MEININGER+Hotel+Bordeaux+Gare+Saint-Jean&checkin=2026-07-23&checkout=2026-07-24&group_adults=2&group_children=2&age=13&age=13" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Appart Chartrons / hôtel 3*</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>80–150 € pour 4 personnes</dd></div>
-            <div class="stay-field"><dt>Quartier privilégié</dt><dd>Chartrons, centre, ou Mérignac/Pessac (tram)</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à confirmer après résa</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Check-in / out</dt><dd class="todo">15h / 11h habituel</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Mama+Shelter+Bordeaux" target="_blank" rel="noopener">Mama Shelter Bordeaux</a>
-                <span class="suggest-meta">Hôtel 3* design · ~150 € · Bastide</span>
-                <p class="suggest-why">Familial, rooftop, ambiance hip. Chambre quadruple possible. Parking sur place.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Novotel+Bordeaux+Lac&checkin=2026-07-23&checkout=2026-07-24" target="_blank" rel="noopener">Novotel Bordeaux Lac ★★★★</a>
+                <span class="suggest-meta">~150 € · 8,2/10 · piscine · parking gratuit</span>
+                <p class="suggest-why">Piscine appréciable pour les enfants après 6h de route. Excentré (6 km centre).</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+de+Seze+Bordeaux" target="_blank" rel="noopener">Hôtel de Sèze</a>
-                <span class="suggest-meta">Hôtel 4* charme · ~200 € · Triangle d'Or</span>
-                <p class="suggest-why">Manoir XVIIIe, quartier vivant, à 10 min à pied de la Garonne.</p>
-              </li>
-              <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=ibis+budget+Bordeaux+Merignac" target="_blank" rel="noopener">ibis budget Mérignac</a>
-                <span class="suggest-meta">Hôtel éco · ~90 € · périphérie tram</span>
-                <p class="suggest-why">2 chambres sous 100 € total possible. Parking gratuit, tram pour le centre.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Mama+Shelter+Bordeaux&checkin=2026-07-23&checkout=2026-07-24" target="_blank" rel="noopener">Mama Shelter Bordeaux</a>
+                <span class="suggest-meta">~150 € · 3* design · Bastide</span>
+                <p class="suggest-why">Familial, rooftop, ambiance hip. Chambre quadruple possible.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-1">
         <div class="stay-head">
-          <h4>Hondarribia <span style="font-size:0.7em; color:var(--ink-soft); font-weight:400">/ alt. Donostia centre</span></h4>
+          <h4>Hondarribia</h4>
           <span class="stay-dates">Ven. 24 juillet · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill urgent">Urgent · 3</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Hotel Palacio Obispo <small>★★★</small></p>
+              <p class="reco-detail"><strong>2 chambres</strong> · vieille ville fortifiée · 50 m du centre historique · annulation gratuite</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,8/10 Superbe</span> · situation 9,6/10 · vue sur les remparts</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~418 €<small>1 nuit · 2 chambres · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Palacio+Obispo+Hondarribia&checkin=2026-07-24&checkout=2026-07-25&group_adults=2&group_children=2&age=13&age=13&no_rooms=2" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Pension casco viejo Hondarribia ou Airbnb fortifications</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>90–150 € (vs 130–200 € à Donostia centre)</dd></div>
-            <div class="stay-field"><dt>Atout</dt><dd>Vieille ville fortifiée colorée, parte vieja accessible à pied, prix août raisonnables</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Vieille ville fortifiée colorée, parte vieja accessible à pied, charme Pays basque</dd></div>
             <div class="stay-field"><dt>Accès Donostia</dt><dd>20 min en voiture ou bus E20 toutes les 15 min</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.paradores.es/fr/parador/parador-de-hondarribia" target="_blank" rel="noopener">Parador de Hondarribia</a>
-                <span class="suggest-meta">Parador 4* · ~250 € · château fort XVe</span>
-                <p class="suggest-why">Dormir dans un palais de Charles Quint, vue baie de Txingudi. Une nuit qui marque.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Jaizkibel+Hondarribia&checkin=2026-07-24&checkout=2026-07-25" target="_blank" rel="noopener">Hotel Jaizkibel ★★★★</a>
+                <span class="suggest-meta">~350 € (2ch) · 9,0/10 Fabuleux</span>
+                <p class="suggest-why">Meilleur rapport qualité/prix de Hondarribia, à 700 m du centre.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Jaizkibel+Hondarribia" target="_blank" rel="noopener">Hotel Jaizkibel</a>
-                <span class="suggest-meta">Hôtel 3* · ~170 € · casco viejo</span>
-                <p class="suggest-why">Maison basque traditionnelle au cœur de la vieille ville fortifiée. Familial.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rio+Bidasoa+Hondarribia&checkin=2026-07-24&checkout=2026-07-25" target="_blank" rel="noopener">Hotel Río Bidasoa ★★★★</a>
+                <span class="suggest-meta">~487 € (2ch) · 8,8/10 · piscine</span>
+                <p class="suggest-why">Piscine appréciable avec enfants. Vue sur la ria. 4 lits simples possibles.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rio+Bidasoa+Hondarribia" target="_blank" rel="noopener">Hotel Río Bidasoa</a>
-                <span class="suggest-meta">Hôtel 3* · ~140 € · bord rivière</span>
-                <p class="suggest-why">Bon rapport qualité/prix, parking, accessible à pied de la vieille ville.</p>
+                <a href="https://www.paradores.es/fr/parador/parador-de-hondarribia" target="_blank" rel="noopener">Parador de Hondarribia ★★★★</a>
+                <span class="suggest-meta">~612 € (2ch) · 8,9/10 · château XVe</span>
+                <p class="suggest-why">Dormir dans le palais de Charles Quint. Vue baie de Txingudi. Une nuit qui marque.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
+            <p class="suggest-disclaimer">Août = très tendu sur Hondarribia (5 hôtels notés ≥ 8/10 seulement). Bookez rapidement.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-2">
         <div class="stay-head">
-          <h4>Santillana del Mar / Comillas</h4>
+          <h4>Santillana del Mar</h4>
           <span class="stay-dates">Sam. 25 juillet · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill soon">À réserver vite · 5</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Hotel Los Angeles <small>★★</small></p>
+              <p class="reco-detail"><strong>2 chambres · 4 lits</strong> · 300 m du centre médiéval · petit-déj inclus · enfants gratuits</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,7/10 Superbe</span> · situation 9,5/10 · annulation gratuite · aucun prépaiement</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~290 €<small>1 nuit · 2 chambres · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Los+Angeles+Santillana&checkin=2026-07-25&checkout=2026-07-26&group_adults=2&group_children=2&age=13&age=13&no_rooms=2" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Casa rural ou hôtel charme</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>90–150 €</dd></div>
-            <div class="stay-field"><dt>Plateformes</dt><dd>Toprural, Escapada Rural, Booking</dd></div>
-            <div class="stay-field"><dt>Lieu privilégié</dt><dd>Santillana intra-muros ou Comillas (mer)</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Village médiéval intramural · à 30 min des grottes de Altamira (reproduction)</dd></div>
+            <div class="stay-field"><dt>Plateformes alt.</dt><dd>Toprural, Escapada Rural (casas rurales)</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.paradores.es/fr/parador/parador-de-santillana-gil-blas" target="_blank" rel="noopener">Parador Gil Blas</a>
-                <span class="suggest-meta">Parador 4* · ~200 € · intramural Santillana</span>
-                <p class="suggest-why">Maison noble XVIIe sur la Plaza Mayor. Dormir DANS le village médiéval, magique au crépuscule.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=BESTPRICE+Santillana&checkin=2026-07-25&checkout=2026-07-26" target="_blank" rel="noopener">Hotel BESTPRICE Santillana ★★</a>
+                <span class="suggest-meta">~187 € · 8,2/10 · chambre quad 3 lits</span>
+                <p class="suggest-why">Option éco. Une seule chambre quadruple, enfants gratuits. À 300 m du centre.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Casa+del+Marques+Santillana" target="_blank" rel="noopener">Casa del Marqués</a>
-                <span class="suggest-meta">Hôtel charme · ~180 € · Santillana</span>
-                <p class="suggest-why">Maison de maître XVe, intramural, ambiance authentique.</p>
+                <a href="https://www.paradores.es/fr/parador/parador-de-santillana-gil-blas" target="_blank" rel="noopener">Parador Gil Blas ★★★★</a>
+                <span class="suggest-meta">~300-400 € · maison noble XVIIe</span>
+                <p class="suggest-why">Sur la Plaza Mayor. Dormir DANS le village médiéval, magique au crépuscule.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Comillas" target="_blank" rel="noopener">Hotel Comillas</a>
-                <span class="suggest-meta">Hôtel 2* · ~120 € · centre Comillas</span>
-                <p class="suggest-why">Plus simple mais à 5 min à pied du palais de Gaudí et de la plage.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=El+Capricho+de+Susana+Santillana&checkin=2026-07-25&checkout=2026-07-26" target="_blank" rel="noopener">El Capricho de Susana</a>
+                <span class="suggest-meta">~240 € · 9,3/10 Fabuleux</span>
+                <p class="suggest-why">Petit boutique charme, situation 9,8/10, 42 avis dithyrambiques.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-2">
         <div class="stay-head">
-          <h4>Picos de Europa · Cangas de Onís / Llanes</h4>
+          <h4>Picos de Europa · Cangas de Onís</h4>
           <span class="stay-dates">Dim. 26 juillet · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill soon">À réserver vite · 4</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Hotel Imperion <small>★★★★</small></p>
+              <p class="reco-detail"><strong>2 chambres doubles séparées</strong> · 350 m du centre · parking · annulation gratuite</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,5/10 Très bien</span> · situation 9,5/10 · porte d'entrée des Picos</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~251 €<small>1 nuit · 2 chambres · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Imperion+Cangas+de+Onis&checkin=2026-07-26&checkout=2026-07-27&group_adults=2&group_children=2&age=13&age=13&no_rooms=2" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Casa rural ou pension Asturies</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>80–140 €</dd></div>
-            <div class="stay-field"><dt>Choix de lieu</dt><dd><strong>Cangas de Onís</strong> (porte d'entrée Picos, 15 min des lacs) ou <strong>Llanes</strong> (port coloré, mer)</dd></div>
-            <div class="stay-field"><dt>Plateformes</dt><dd>Toprural, Escapada Rural, Booking</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>15 min des Lacs de Covadonga (départ matin recommandé)</dd></div>
+            <div class="stay-field"><dt>Plan jour suivant</dt><dd>Lacs au lever → route vers Lugo (4h30)</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.paradores.es/fr/parador/parador-de-cangas-de-onis" target="_blank" rel="noopener">Parador de Cangas de Onís</a>
-                <span class="suggest-meta">Parador 4* · ~220 € · monastère XIIe</span>
-                <p class="suggest-why">Monastère bénédictin au bord du Sella, à 15 min des Lacs de Covadonga. Le clou de l'aller.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Covadonga+Cangas&checkin=2026-07-26&checkout=2026-07-27" target="_blank" rel="noopener">Hotel Covadonga ★★</a>
+                <span class="suggest-meta">~160 € · 8,3/10 · centre Cangas</span>
+                <p class="suggest-why">Option budget, hébergement géré par particulier, bien situé.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Halcon+Palace+Arriondas" target="_blank" rel="noopener">Hotel Halcón Palace</a>
-                <span class="suggest-meta">Hôtel charme · ~170 € · Arriondas</span>
-                <p class="suggest-why">Palais XVIIe rénové, parc, piscine, idéal après une journée Picos.</p>
+                <a href="https://www.paradores.es/fr/parador/parador-de-cangas-de-onis" target="_blank" rel="noopener">Parador de Cangas de Onís ★★★★</a>
+                <span class="suggest-meta">~350-450 € · monastère XIIe</span>
+                <p class="suggest-why">Monastère bénédictin au bord du Sella. Le clou du voyage si budget OK.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Casona+de+Llanes" target="_blank" rel="noopener">La Casona de Llanes</a>
-                <span class="suggest-meta">Hôtel 3* · ~130 € · Llanes port</span>
-                <p class="suggest-why">Alternative en bord de mer (Cubos de la Memoria à 5 min), si vous préférez la côte au monastère.</p>
+                <a href="https://www.toprural.com/Asturias/" target="_blank" rel="noopener">Toprural — Casas rurales Asturies</a>
+                <span class="suggest-meta">~100-140 € · gîte authentique</span>
+                <p class="suggest-why">Expérience montagne véritable. Partent vite — réserver directement.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-3">
         <div class="stay-head">
           <h4>Lugo</h4>
           <span class="stay-dates">Lun. 27 juillet · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill easy">Étape facile · 7</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Noreas Centro Lucus Augusti <small>Appart entier</small></p>
+              <p class="reco-detail"><strong>2 chambres · 65 m² · 2 vrais lits doubles</strong> · cuisine équipée · 300 m du centre</p>
+              <p class="reco-detail"><span class="reco-rating">★ 9,4/10 Fabuleux</span> · situation 9,8/10 · pépite du voyage</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~88 €<small>1 nuit · 4 pers · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=Noreas+Centro+Lucus+Augusti+Lugo&checkin=2026-07-27&checkout=2026-07-28&group_adults=2&group_children=2&age=13&age=13" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Pension ou hôtel 3* intra-muraille</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>70–120 €</dd></div>
-            <div class="stay-field"><dt>Atout</dt><dd>Dormir à l'intérieur de la muraille romaine UNESCO</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact / N° résa</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Dormir intra-muros de la muraille romaine UNESCO</dd></div>
+            <div class="stay-field"><dt>Bonus</dt><dd>Cuisine pour souper après route depuis Picos (4h30)</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Pazo+de+Orban+Lugo" target="_blank" rel="noopener">Hotel Pazo de Orbán</a>
-                <span class="suggest-meta">Hôtel charme · ~150 € · intra-muraille</span>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Pazo+de+Orban+Lugo&checkin=2026-07-27&checkout=2026-07-28" target="_blank" rel="noopener">Hotel Pazo de Orbán</a>
+                <span class="suggest-meta">~150 € · charme · intra-muraille</span>
                 <p class="suggest-why">Palais XVIIIe dans la vieille ville, muraille accessible à pied.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Mendez+Nunez+Lugo" target="_blank" rel="noopener">Hotel Méndez Núñez</a>
-                <span class="suggest-meta">Hôtel 3* · ~110 € · centre</span>
-                <p class="suggest-why">Bon rapport qualité/prix, parking, à 5 min de la muraille romaine.</p>
-              </li>
-              <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hostal+Domus+Plaza+Lugo" target="_blank" rel="noopener">Hostal Domus Plaza</a>
-                <span class="suggest-meta">Hostal · ~85 € · centre</span>
-                <p class="suggest-why">Option éco propre et bien notée, proche muraille.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hostal+Domus+Plaza+Lugo&checkin=2026-07-27&checkout=2026-07-28" target="_blank" rel="noopener">Hostal Domus Plaza</a>
+                <span class="suggest-meta">~85 € · option éco · centre</span>
+                <p class="suggest-why">Propre, bien noté, proche muraille.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay booked">
+      <article class="stay priority-1">
         <div class="stay-head">
           <h4>Porto · 4 nuits</h4>
           <span class="stay-dates">Mar. 28 → Sam. 1<sup>er</sup> août</span>
-          <span class="pill ok">Réservé</span>
+          <span class="pill urgent">Urgent · 1</span>
         </div>
         <div class="stay-body">
+          <div style="grid-column: 1 / -1; margin-bottom: 1rem; padding: 0.9rem 1.1rem; background: var(--cream-2); border-left: 3px solid var(--azulejo); font-size: 0.88rem; line-height: 1.5;">
+            <strong style="color: var(--azulejo);">Critères de choix :</strong> petit hôtel/appart sympa · parking gratuit · bien centré · borne VE bonus.
+            <strong style="display:block; margin-top:0.4rem; color: var(--azulejo);">3 options classées du meilleur rapport au plus charme :</strong>
+          </div>
+
+          <div class="reco-multi">
+            <div class="reco" style="background: linear-gradient(180deg, #F4F8E8 0%, #FAF6EF 100%); border-color: var(--olive);">
+              <div>
+                <span class="reco-tag" style="color: var(--olive);">★ Meilleur prix · charme</span>
+                <p class="reco-name">Maison moderne Gaia <small>Airbnb · Superhôte</small></p>
+                <p class="reco-detail"><strong>2 chambres · 2 lits doubles</strong> · terrasse · vue caves Porto</p>
+                <p class="reco-detail"><span class="reco-rating">★ 4,87/5 (164 avis)</span> · 10 min à pied du pont Dom Luís</p>
+                <p class="reco-detail" style="color: var(--olive); font-weight: 600;">🚗 Parking gratuit · 🍳 Petit-déj inclus</p>
+              </div>
+              <div class="reco-cta">
+                <div class="reco-price">~609 €<small>4 nuits · 4 pers · taxes</small></div>
+                <a class="btn-reserve" href="https://www.airbnb.fr/s/Vila-Nova-de-Gaia--Portugal/homes?checkin=2026-07-28&checkout=2026-08-01&adults=2&children=2&room_types[]=Entire%20home%2Fapt&amenities[]=9" target="_blank" rel="noopener">Voir Airbnb →</a>
+              </div>
+            </div>
+
+            <div class="reco">
+              <div>
+                <span class="reco-tag">★ Charme + parking + centre</span>
+                <p class="reco-name">Casa da Cordoaria Avó Rosa <small>Airbnb · Superhôte</small></p>
+                <p class="reco-detail"><strong>2 chambres · 3 lits · 2 sdb</strong> · Porto centre historique</p>
+                <p class="reco-detail"><span class="reco-rating">★ 4,92/5 (393 avis)</span> Coup de cœur voyageurs</p>
+                <p class="reco-detail" style="color: var(--olive); font-weight: 600;">🚗 Parking gratuit inclus</p>
+              </div>
+              <div class="reco-cta">
+                <div class="reco-price">~812 €<small>4 nuits · 4 pers · taxes</small></div>
+                <a class="btn-reserve" href="https://www.airbnb.fr/rooms/34711441?check_in=2026-07-28&check_out=2026-08-01&adults=2&children=2" target="_blank" rel="noopener">Voir Airbnb →</a>
+              </div>
+            </div>
+
+            <div class="reco" style="background: linear-gradient(180deg, #EEF5F7 0%, #FAF6EF 100%); border-color: var(--azulejo);">
+              <div>
+                <span class="reco-tag" style="color: var(--azulejo);">⚡ Idéal voiture électrique</span>
+                <p class="reco-name">Poveira Hotel <small>★ Boutique Genius</small></p>
+                <p class="reco-detail"><strong>2 chambres doubles · 2 grands lits</strong> · Campanhã · 2 km centre</p>
+                <p class="reco-detail"><span class="reco-rating">★ 8,7/10 Superbe (2 130 avis)</span> · situation 9,3/10</p>
+                <p class="reco-detail" style="color: var(--azulejo); font-weight: 600;">🚗 Parking + ⚡ Borne VE incluse</p>
+              </div>
+              <div class="reco-cta">
+                <div class="reco-price">~743 €<small>4 nuits · 2 chambres · taxes</small></div>
+                <a class="btn-reserve alt" href="https://www.booking.com/searchresults.fr.html?ss=Poveira+Hotel+Porto&checkin=2026-07-28&checkout=2026-08-01&group_adults=2&group_children=2&age=13&age=13&no_rooms=2&nflt=hotelfacility%3D158" target="_blank" rel="noopener">Voir Booking →</a>
+              </div>
+            </div>
+          </div>
+
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Plateforme</dt><dd>Airbnb</dd></div>
-            <div class="stay-field"><dt>Type</dt><dd>Appartement entier</dd></div>
-            <div class="stay-field"><dt>Lien</dt><dd><a href="https://www.airbnb.fr/rooms/21096822" target="_blank" rel="noopener">airbnb.fr/rooms/21096822</a></dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à confirmer (réception clé)</dd></div>
+            <div class="stay-field"><dt>Choix retenu</dt><dd class="todo">à arbitrer</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
             <div class="stay-field"><dt>Contact hôte</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Code WiFi</dt><dd class="todo">à compléter sur place</dd></div>
-            <div class="stay-field"><dt>Check-in / out</dt><dd class="todo">à confirmer avec l'hôte</dd></div>
+            <div class="stay-field"><dt>Check-in / out</dt><dd class="todo">à confirmer</dd></div>
           </dl>
+          <p class="suggest-disclaimer">⚠️ Pour la voiture électrique : seul le Poveira garantit une borne sur place. Pour les 2 Airbnb : recharger pendant les visites en ville (bornes Mobi.E nombreuses · ~0,25 €/kWh).</p>
         </div>
       </article>
 
@@ -1688,133 +1948,134 @@
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-1">
         <div class="stay-head">
           <h4>Lisbonne · 5 nuits</h4>
-          <span class="stay-dates">Mer. 5 → Dim. 9 août</span>
-          <span class="pill todo">À réserver</span>
+          <span class="stay-dates">Mer. 5 → Lun. 10 août</span>
+          <span class="pill urgent">Urgent · 2</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Fun São Bento @ Mini Kidland <small>Airbnb · Superhôte</small></p>
+              <p class="reco-detail"><strong>2 chambres · 2 lits</strong> · São Bento (entre Chiado et Alfama) · cuisine équipée</p>
+              <p class="reco-detail"><span class="reco-rating">★ 4,9/5 (352 avis)</span> · Superhôte fiable · annulation flexible</p>
+              <p class="reco-detail" style="color: var(--olive); font-weight: 600;">🚗 Parking INCLUS (critère obligatoire VE confirmé)</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~1 209 €<small>5 nuits · 4 pers · taxes</small></div>
+              <a class="btn-reserve" href="https://www.airbnb.fr/s/Lisbonne--Portugal/homes?checkin=2026-08-05&checkout=2026-08-10&adults=2&children=2&room_types[]=Entire%20home%2Fapt&amenities[]=9&query=S%C3%A3o%20Bento%20Lisbonne" target="_blank" rel="noopener">Voir sur Airbnb →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Appart entier (cuisine équipée)</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>120–180 € /nuit pour 4 personnes</dd></div>
-            <div class="stay-field"><dt>Quartiers privilégiés</dt><dd>Alfama, Chiado, Bairro Alto, Marvila, Anjos, Beato</dd></div>
-            <div class="stay-field"><dt>Critères clés</dt><dd>Parking obligatoire · borne VE bonus</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix séjour</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Contact hôte</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Quartier</dt><dd>São Bento · entre Chiado et Alfama · idéal pour tout faire à pied</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Parking inclus + Superhôte = rare à Lisbonne</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
             <div class="stay-field"><dt>Code accès</dt><dd class="todo">à compléter sur place</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer (5 nuits, séjour entier)</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hello+Lisbon+Apartments" target="_blank" rel="noopener">Hello Lisbon Apartments</a>
-                <span class="suggest-meta">Appart entiers · ~160 €/nuit · Alfama/Bairro</span>
-                <p class="suggest-why">Réseau de gestion pro, parc d'apparts 2 chambres modernes (cuisine, AC). Service rapide.</p>
+                <a href="https://www.airbnb.fr/s/Lisbonne--Portugal/homes?checkin=2026-08-05&checkout=2026-08-10&adults=2&children=2&query=Madre%20Deus%20Lisbonne" target="_blank" rel="noopener">Appartement Madre Deus</a>
+                <span class="suggest-meta">~967 € · 4,51/5 (213 avis) · Superhôte</span>
+                <p class="suggest-why">Option éco, 2 chambres, parking · vérifier dispo borne VE.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=The+Lisboans+Apartments" target="_blank" rel="noopener">The Lisboans Apartments</a>
-                <span class="suggest-meta">Appart design · ~180 €/nuit · Mouraria</span>
-                <p class="suggest-why">Décor soigné, terrasse partagée vue toits. À 5 min d'Alfama et du métro Martim Moniz.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Chiado+Arty+Flats+Lisbon&checkin=2026-08-05&checkout=2026-08-10" target="_blank" rel="noopener">Chiado Arty Flats ★★★★</a>
+                <span class="suggest-meta">~1 367 € · 9,4/10 · terrasse · petit-déj</span>
+                <p class="suggest-why">Chiado = quartier parfait. Petit-déj inclus, annulation gratuite. Vérifier parking.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Feels+Like+Home+Lisbon" target="_blank" rel="noopener">Feels Like Home</a>
-                <span class="suggest-meta">Appart famille · ~170 €/nuit · centre</span>
-                <p class="suggest-why">Spécialistes apparts famille 4+, parc large, AC, balcons. Plusieurs options par quartier.</p>
-              </li>
-              <li class="suggest-item">
-                <a href="https://www.pousadasjuventude.pt/fr/pousadas/lisboa/" target="_blank" rel="noopener">Pousada da Juventude Lisboa</a>
-                <span class="suggest-meta">Chambre 4 privée · ~110 €/nuit · Parque das Nações</span>
-                <p class="suggest-why">Backup ultra-éco. Métro direct centre, petit-déj inclus. Loin du centre historique.</p>
+                <a href="https://www.airbnb.fr/s/Lisbonne--Portugal/homes?checkin=2026-08-05&checkout=2026-08-10&adults=2&children=2&query=S%C3%A9%20Alfama%20Lisbonne" target="_blank" rel="noopener">Appartement lumineux à Sé</a>
+                <span class="suggest-meta">~1 130 € · 4,85/5 (690 avis)</span>
+                <p class="suggest-why">Vue cathédrale, 2 chambres, très lumineux. ⚠️ Parking à confirmer avant résa.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Vérifier parking et borne VE dans chaque annonce. Réductions long séjour souvent automatiques au-delà de 3 nuits.</p>
+            <p class="suggest-disclaimer">⚠️ Parking obligatoire : seul Fun São Bento Kidland & Madre Deus l'ont confirmé. Vérifier pour les autres avant de bookez. Plusieurs bornes Mobi.E dans tout Lisbonne.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-3">
         <div class="stay-head">
           <h4>Salamanque · retour</h4>
           <span class="stay-dates">Lun. 10 août · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill easy">Étape facile · 8</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">Apartamentos Ele San Justo Plaza <small>★★★ Appart entier</small></p>
+              <p class="reco-detail"><strong>Appartement entier</strong> · 200 m de la Plaza Mayor · cuisine équipée · annulation gratuite</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,1/10 Très bien</span> · situation 9,5/10 · buhardilla familiale</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~91 €<small>1 nuit · 4 pers · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=Apartamentos+Ele+San+Justo+Plaza+Salamanca&checkin=2026-08-10&checkout=2026-08-11&group_adults=2&group_children=2&age=13&age=13" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Type recommandé</dt><dd>Hostal Plaza Mayor / albergue juvenil</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>70–120 €</dd></div>
-            <div class="stay-field"><dt>Quartier privilégié</dt><dd>Proche Plaza Mayor</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Atout</dt><dd>Plaza Mayor de Salamanque éclairée le soir = inoubliable</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rector+Salamanca" target="_blank" rel="noopener">Hotel Rector</a>
-                <span class="suggest-meta">Boutique 5* · ~200 € · proche cathédrale</span>
-                <p class="suggest-why">Pour finir le voyage en beauté : palais Art déco, élégance discrète.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=NH+Salamanca+Puerta+de+la+Catedral&checkin=2026-08-10&checkout=2026-08-11" target="_blank" rel="noopener">NH Puerta de la Catedral ★★★★</a>
+                <span class="suggest-meta">~140-180 € · cathédrale · chaîne fiable</span>
+                <p class="suggest-why">Très bien situé, parking sur réservation.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=NH+Salamanca+Puerta+de+la+Catedral" target="_blank" rel="noopener">NH Puerta de la Catedral</a>
-                <span class="suggest-meta">Hôtel 4* · ~140 € · cathédrale</span>
-                <p class="suggest-why">Très bien situé, chaîne fiable, parking sur réservation.</p>
-              </li>
-              <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Hostal+Sara+Salamanca" target="_blank" rel="noopener">Hostal Sara</a>
-                <span class="suggest-meta">Hostal · ~80 € · Plaza Mayor</span>
-                <p class="suggest-why">Option éco propre, à 30 m de la Plaza Mayor.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Hotel+Rector+Salamanca&checkin=2026-08-10&checkout=2026-08-11" target="_blank" rel="noopener">Hotel Rector</a>
+                <span class="suggest-meta">~200 € · boutique 5* · cathédrale</span>
+                <p class="suggest-why">Finir le voyage en beauté : palais Art déco, élégance discrète.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
 
-      <article class="stay">
+      <article class="stay priority-3">
         <div class="stay-head">
           <h4>Bordeaux · retour</h4>
           <span class="stay-dates">Mar. 11 août · 1 nuit</span>
-          <span class="pill todo">À réserver</span>
+          <span class="pill easy">Étape facile · 9</span>
         </div>
         <div class="stay-body">
+          <div class="reco">
+            <div>
+              <span class="reco-tag">★ Recommandé · à réserver</span>
+              <p class="reco-name">MEININGER Hotel Bordeaux Gare Saint-Jean <small>★★★ (même qu'à l'aller)</small></p>
+              <p class="reco-detail"><strong>Chambre quadruple · 4 lits</strong> · proche gare TGV · cohérence aller/retour</p>
+              <p class="reco-detail"><span class="reco-rating">★ 8,6/10 Superbe</span> · astuce : booker en direct pour remise 5-10% sur les 2 nuits</p>
+            </div>
+            <div class="reco-cta">
+              <div class="reco-price">~95 €<small>1 nuit · 4 pers · taxes</small></div>
+              <a class="btn-reserve" href="https://www.booking.com/searchresults.fr.html?ss=MEININGER+Hotel+Bordeaux+Gare+Saint-Jean&checkin=2026-08-11&checkout=2026-08-12&group_adults=2&group_children=2&age=13&age=13" target="_blank" rel="noopener">Réserver →</a>
+            </div>
+          </div>
           <dl class="stay-fields">
-            <div class="stay-field"><dt>Astuce</dt><dd>Même hébergement qu'à l'aller possible (remise 5-10% en direct).</dd></div>
-            <div class="stay-field"><dt>Budget cible</dt><dd>80–150 €</dd></div>
-          </dl>
-          <dl class="stay-fields">
-            <div class="stay-field"><dt>Établissement</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Lien réservation</dt><dd class="todo">à compléter</dd></div>
-            <div class="stay-field"><dt>Prix total</dt><dd class="todo">à compléter</dd></div>
+            <div class="stay-field"><dt>Astuce</dt><dd>Même hôtel qu'à l'aller : remise 5-10% possible en réservant en direct (2 nuits)</dd></div>
+            <div class="stay-field"><dt>N° réservation</dt><dd class="todo">à compléter</dd></div>
           </dl>
           <div class="stay-suggestions">
-            <h5>Pistes à comparer</h5>
+            <h5>Alternatives</h5>
             <ul class="suggest-list">
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Mama+Shelter+Bordeaux" target="_blank" rel="noopener">Mama Shelter</a>
-                <span class="suggest-meta">Hôtel 3* · ~150 € · Bastide</span>
-                <p class="suggest-why">Refaire la même qu'à l'aller pour simplifier — demander remise -10% en direct sur 2 réservations.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Novotel+Bordeaux+Lac&checkin=2026-08-11&checkout=2026-08-12" target="_blank" rel="noopener">Novotel Bordeaux Lac ★★★★</a>
+                <span class="suggest-meta">~130 € · piscine · parking gratuit</span>
+                <p class="suggest-why">Piscine = bon décompressé avant Paris demain. Parking gratuit, calme.</p>
               </li>
               <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Yndo+Hotel+Bordeaux" target="_blank" rel="noopener">Yndo Hôtel</a>
-                <span class="suggest-meta">Boutique 5* · ~280 € · Triangle d'Or</span>
-                <p class="suggest-why">Pour clore le voyage en beauté : maison bourgeoise, design contemporain, 12 chambres uniquement.</p>
-              </li>
-              <li class="suggest-item">
-                <a href="https://www.booking.com/searchresults.fr.html?ss=Campanile+Bordeaux+Centre+Gare+Saint+Jean" target="_blank" rel="noopener">Campanile Bordeaux Gare St-Jean</a>
-                <span class="suggest-meta">Hôtel éco · ~90 € · gare</span>
-                <p class="suggest-why">Simple et pratique pour repartir tôt vers Paris le lendemain.</p>
+                <a href="https://www.booking.com/searchresults.fr.html?ss=Campanile+Bordeaux+Gare+Saint+Jean&checkin=2026-08-11&checkout=2026-08-12" target="_blank" rel="noopener">Campanile Bordeaux Gare St-Jean</a>
+                <span class="suggest-meta">~90 € · éco · gare</span>
+                <p class="suggest-why">Simple et pratique pour repartir tôt vers Paris.</p>
               </li>
             </ul>
-            <p class="suggest-disclaimer">Prix indicatifs été 2026 · à valider sur les plateformes aux dates exactes.</p>
           </div>
         </div>
       </article>
@@ -1825,9 +2086,9 @@
       <div class="card">
         <h4>Plateformes prioritaires</h4>
         <ul>
-          <li><strong>pousadasjuventude.pt</strong> — Portugal éco</li>
           <li><strong>Booking + Airbnb</strong> — comparer toujours</li>
-          <li><strong>Toprural / Escapada Rural</strong> — casas rurales</li>
+          <li><strong>Pousadas de Portugal</strong> — Portugal authentique</li>
+          <li><strong>Toprural / Escapada Rural</strong> — casas rurales Espagne</li>
           <li><strong>Vrbo / Plum Guide</strong> — apparts familiaux</li>
         </ul>
       </div>
@@ -1841,14 +2102,12 @@
           <li>Note ≥ 8/10 (Booking) ou 4,5 (Airbnb)</li>
         </ul>
       </div>
-      <div class="card">
-        <h4>Urgent à réserver</h4>
+      <div class="card" style="background: #FBE9E7; border-left-color: #C0392B;">
+        <h4 style="color: #C0392B;">Urgent · réserver dans l'heure</h4>
         <ul>
-          <li><strong>Lisbonne 5 nuits</strong> — sature vite</li>
-          <li><strong>Hondarribia</strong> — vieille ville, août tendu</li>
-          <li><strong>Picos de Europa</strong> — casas rurales partent vite</li>
-          <li><strong>Santillana / Comillas</strong> — village très demandé</li>
-          <li><strong>Bordeaux aller + retour</strong> — pic estival</li>
+          <li><strong>Porto 4 nuits</strong> — apparts centrés partent vite</li>
+          <li><strong>Lisbonne 5 nuits</strong> — sature en août</li>
+          <li><strong>Hondarribia</strong> — 5 hôtels seulement, août tendu</li>
         </ul>
       </div>
     </div>
@@ -1863,7 +2122,7 @@
       <h2>Budget estimatif</h2>
       <hr class="rule">
       <p class="lede">
-        Hors villa Guimarães et hors Airbnb Porto (déjà engagés). Estimations
+        Hors villa Guimarães (déjà engagée). Estimations
         à 4 personnes, août 2026, scénario économique réaliste.
       </p>
     </div>
@@ -1874,13 +2133,13 @@
           <tr><th>Poste</th><th>Mini</th><th>Médian</th><th>Confort</th></tr>
         </thead>
         <tbody>
-          <tr><td>Hébergement (12 nuits hors Porto/villa)</td><td>1 200 €</td><td>1 680 €</td><td>2 160 €</td></tr>
+          <tr><td>Hébergement (14 nuits hors villa)</td><td>2 750 €</td><td>3 140 €</td><td>3 900 €</td></tr>
           <tr><td>Recharges VE (≈ 4 300 km)</td><td>240 €</td><td>330 €</td><td>410 €</td></tr>
           <tr><td>Repas (4 pers. × 21 j)</td><td>1 050 €</td><td>1 470 €</td><td>2 000 €</td></tr>
           <tr><td>Visites &amp; musées</td><td>320 €</td><td>480 €</td><td>630 €</td></tr>
           <tr><td>Péages France/Espagne</td><td>100 €</td><td>120 €</td><td>140 €</td></tr>
           <tr><td>Imprévus, extras</td><td>320 €</td><td>470 €</td><td>620 €</td></tr>
-          <tr class="total"><td>TOTAL</td><td>3 230 €</td><td>4 550 €</td><td>5 960 €</td></tr>
+          <tr class="total"><td>TOTAL</td><td>4 780 €</td><td>6 010 €</td><td>7 700 €</td></tr>
         </tbody>
       </table>
     </div>
@@ -1888,18 +2147,18 @@
     <div class="budget-grid">
       <div class="budget-box">
         <h4>Scénario éco</h4>
-        <p>Pousadas, pensions, casas rurales. Cuisine équipée la moitié des soirs, déjeuner sur le pouce.</p>
-        <div class="total">≈ 3 200 €</div>
+        <p>Options budget partout (BESTPRICE Santillana, Maison Gaia, etc.). Cuisine équipée la moitié des soirs.</p>
+        <div class="total">≈ 4 800 €</div>
       </div>
       <div class="budget-box featured">
         <h4>Scénario médian (recommandé)</h4>
-        <p>Apparts confortables Lisbonne, casas rurales et hostales charme aux escales, restos un soir sur deux, quelques visites payantes.</p>
-        <div class="total">≈ 4 600 €</div>
+        <p>Les options recommandées ⭐ partout (~3 140 € hébergement). Restos un soir sur deux, quelques visites payantes.</p>
+        <div class="total">≈ 6 000 €</div>
       </div>
       <div class="budget-box">
         <h4>Scénario confort</h4>
-        <p>Hôtels 3-4* centraux partout, restos quotidiens, toutes les visites majeures, flexibilité maximale.</p>
-        <div class="total">≈ 6 000 €</div>
+        <p>Parador Hondarribia, Chiado Arty Flats Lisbonne, etc. Restos quotidiens, toutes visites majeures.</p>
+        <div class="total">≈ 7 700 €</div>
       </div>
     </div>
   </div>
@@ -2305,7 +2564,7 @@
       { name: 'Santillana del Mar', coord: [43.3905, -4.1023], type: 'todo',  label: 'J3 · 25 juillet · village médiéval + Gaudí' },
       { name: 'Cangas de Onís',     coord: [43.3504, -5.1306], type: 'todo',  label: 'J4 · 26 juillet · Picos de Europa + Lacs Covadonga' },
       { name: 'Lugo',               coord: [43.0096, -7.5567], type: 'todo',  label: 'J5 · 27 juillet · muraille romaine UNESCO' },
-      { name: 'Porto',              coord: [41.1579, -8.6291], type: 'fixed', label: 'J6-J9 · 4 nuits · Airbnb réservé' },
+      { name: 'Porto',              coord: [41.1579, -8.6291], type: 'todo', label: 'J6-J9 · 4 nuits · à réserver' },
       { name: 'Guimarães',          coord: [41.4419, -8.2962], type: 'fixed', label: 'J10-J13 · villa · mariage 3 août' },
       { name: 'Lisbonne',           coord: [38.7223, -9.1393], type: 'todo',  label: 'J14-J18 · 5 nuits · à réserver' }
     ];
